@@ -121,10 +121,26 @@ function W_star = trans_x_comp_w_star(x, y, lamba, dimension_start, dimension_en
     end
 endfunction
 
-// TODO: implement online learn from formula
-function onlineLMS()
+function w_n = onlineLMS(A,y,my, threshold)
+    // implement online learn from formula
+    // see http://de.wikipedia.org/wiki/LMS-Algorithmus
     //e(n) = y(n) - x(n)'*w(n);
     //w(n+1) = w(n) + my* e(n) * x(n);
+    
+    [m,n] = size(A);
+    
+    w_n = ones(m,1);
+    thresh_act = %inf;
+    n_index = 0;
+    while thresh_act > threshold
+        n_index = modulo(n_index,n)+1;
+        x_n = A(:,n_index);
+        y_n = y(n_index);
+        e_n = y_n - x_n'*w_n;
+        w_np1 = w_n + my*e_n*x_n;
+        thresh_act = norm(w_np1 - w_n);
+        w_n = w_np1;
+    end
 endfunction
 
 x_start = 0;
@@ -156,3 +172,9 @@ W_star = trans_x_comp_w_star(x_t,y_t,lamda,dimension_start, dimension_end);
 Y = createPolynomValuesW(x,W_star);
 
 plotDataY(x,Y);
+
+threshold = 0.01;
+my = 0.05;
+A_3 = createA(x_t,3);
+onlineLMS(A_3, y_t ,my, threshold);
+
