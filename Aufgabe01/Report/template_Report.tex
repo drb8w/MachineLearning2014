@@ -53,7 +53,7 @@ Die Anzahl der Iterationen h\"angt ma{\ss}geblich von der \emph{margin} der sepa
 \subsection{Welchen Einflu{\ss} hat die Schrittweite}
 
 Der Einflu{\ss} der Schrittweite h\"angt sowohl von den Eingangsdaten als auch vom gew\"ahlten Algorithmus ab.
-Es ist zu beobachten, da{\ss} der batch-Algorithmus keine gro{\ss}en Abweichungen zeigt, egal welches $\gamma$ gew\"ahlt wird. Beim online-Verfahren ist der Einflu{\ss} gr\"o{\ss}er, das hei{\ss}t die Varianz in den ermittelten Iterationen ist h\"oher, aber auch hier ist kein eindeutiger Bereich \"uber alle Simulationen auszumachen, wo ein gegebenes $\gamma$ die Iterationen des Algorithmus wesentlich reduziert.
+Es ist zu beobachten, da{\ss} der batch-Algorithmus keine gro{\ss}en Abweichungen zeigt, egal welches $\gamma$ gew\"ahlt wird. Beim online-Verfahren ist der Einflu{\ss} gr\"o{\ss}er, das hei{\ss}t die Varianz in den ermittelten Iterationen ist h\"oher, aber auch hier ist kein eindeutiger Bereich \"uber alle Simulationen auszumachen, wo ein gegebenes $\gamma$ die Iterationen des Algorithmus wesentlich reduziert. Zu sehen ist die Verteilung der Iterationen \"uber ein $\gamma$ von 0.1 bis 4 f\"ur die jeweiligen unterschiedlichen Datens\"atze in Tabelle ~\ref{tab:GammaToIterations}.
 
 \begin{table}[h]
 \begin{tabular}{| c | c |}
@@ -74,6 +74,7 @@ Es ist zu beobachten, da{\ss} der batch-Algorithmus keine gro{\ss}en Abweichunge
 
 \subsection{Daten und Entscheidungsgrenzen im $\mathbb{R}^2$}
 
+Die ermittelten Entscheidungsgrenzen des batch-learning sowie des online-learning Algorithmus sind f\"ur die einzelnen Datens\"atze und ein gegebenes $\gamma$ von 1 in Tabelle ~\ref{tab:DataSetsAndBounds} zu sehen.
 
 \begin{table}[h]
 \begin{tabular}{| c | c |}
@@ -99,5 +100,26 @@ $set_2$: $\mu_2=2$, $\Sigma_2=4$ & $set_2$: $\mu_2=2$, $\Sigma_2=5$ \\
 \subsection{Wie ist das Verhalten bei nicht linear separierbaren Daten}
 
 Der Algorithmus terminiert nicht da bei jedem Durchlauf Daten gefunden werden, welche in der falschen Klasse landen.
+
+\section{Lineare Regression}
+
+\subsection{Gewichtsvektor mittels Gradientenabstieg bei quadratischer Fehlerfunktion}
+
+\subsection{Optimaler Gewichtsvektor $w^*$}
+
+Den optimalen Gewichtsvektor $w^*$ kann man \"uber die Bestimmung der Pseudoinversen $A^+$ f\"ur die Gleichung $Aw^*=b$ ermitteln.
+
+Die Gleichung $w^*=A^+b$ bestimmt das optimale $w^*$. 
+
+Dabei berechnet sich $A^+$ wie folgt:
+
+\begin{eqnarray}
+A^+ =& (AA^T)^{-1} &\textnormal{ f\"ur invertierbare } AA^T \\
+A^+ =& (AA^T)^{-1} + \lambda I &\textnormal{ f\"ur nicht invertierbare} AA^T \textnormal{ mit } \lambda<<1
+\end{eqnarray}
+
+Das ermittelte Ergebnis f\"ur $w^*$ mit normalisierten Daten lautet: $w^*=(1.0106678, - 10.0086, 1.8960336, 0.0262634)$.
+
+\subsection{Konvergenzverhalten in Abh\"angigkeit von $\gamma$}
 
 \end{document}          
