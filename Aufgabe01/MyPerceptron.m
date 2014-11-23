@@ -1,11 +1,24 @@
-
 function MyPerceptron()
+
+My_1 = [10, 10,10,10]; 
+Sigma_1 = [5,4,3,2];
+
+My_2 = [2, 2, 2, 2]; 
+Sigma_2 = [2,3,4,5];
+
+Seed = [2,3,4,5];
+
+for index=1:4
+    MySpecialPerceptron(My_1(index), Sigma_1(index),My_2(index), Sigma_2(index), Seed(index), index);
+end
+
+
+end
+
+
+function MySpecialPerceptron(my_1,sigma_1,my_2,sigma_2, seed, no_figure)
     n = 100;
     d = 2;
-    my_1 = 10;
-    sigma_1 = 2;
-    my_2 = 2;
-    sigma_2 = 4;
     [data, target] = genData(n, d, my_1, sigma_1, my_2, sigma_2);
     [data_1, data_2] = separateData(data, target);    
     
@@ -31,11 +44,12 @@ function MyPerceptron()
     t_60_b = perc(w_batch,x_60);
     t_60 = t(60);
     
-    displayData(data_1, data_2, w_online);
+    displayData(data_1, data_2, w_online, no_figure);
 end
 
 function [data, target] = genData(n, d, my_1, sigma_1, my_2, sigma_2)
-
+    seed = 2;
+    rng(seed);
     data = zeros(n,d);
     target = zeros(1,n);
     n_1 = uint32(n/2);
@@ -63,8 +77,10 @@ function [data_1, data_2] = separateData(data, target)
     data_2 = data((m/2+1):m,:);
 end
 
-function displayData(data_1, data_2, w)
+function displayData(data_1, data_2, w, no_figure)
 
+    figure(no_figure);
+    
     hold on;
     
     grid
@@ -77,7 +93,11 @@ function displayData(data_1, data_2, w)
         set (p1,'LineWidth',1);
     end
     
-    hold off;   
+    hold off;
+    
+    figureName = strcat('MyPerceptron_', int2str(no_figure));
+    
+    saveas(gcf, figureName,'jpg');
 
 end
 
