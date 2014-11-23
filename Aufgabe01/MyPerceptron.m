@@ -1,53 +1,57 @@
 function MyPerceptron()
     clc, clear, close all
 
+    n = 100;
+    d = 2;
+    
     Mu_1 = [14,14,14,14]; 
     Sigma_1 = [5,4,3,2];
 
     Mu_2 = [2, 2, 2, 2]; 
     Sigma_2 = [2,3,4,5];
 
-    %Seed = [2,3,4,5];
     Seed = [2,2,2,2];
+    
+    [m_Sigma, n_Sigma] = size(Sigma_1);
+    
+    for index_DataSet=1:n_Sigma
 
-    for index=1:4
-        MySpecialPerceptron(Mu_1(index), Sigma_1(index),Mu_2(index), Sigma_2(index), Seed(index), index);
+        [data, target] = genData(n, d, Mu_1(index_DataSet), Sigma_1(index_DataSet), Mu_2(index_DataSet), Sigma_2(index_DataSet), Seed(index_DataSet));
+        [data_1, data_2] = separateData(data, target);
+
+        no_figure_dataset = index_DataSet*100;
+        %displayData(data_1, data_2, no_figure_dataset);
+        displayData(data_1, data_2, Mu_1(index_DataSet), Sigma_1(index_DataSet),Mu_2(index_DataSet), Sigma_2(index_DataSet), no_figure_dataset)
+        close(no_figure_dataset);
+
+        X = createHomogenData(data);
+        t = target;
+        maxIts = 10000;
+
+        Gamma = 0.1:0.1:4;
+        [Gamma_m,Gamma_n] = size(Gamma);
+        Iterations_online = zeros(Gamma_n,1);
+        Iterations_batch = zeros(Gamma_n,1);
+
+        for index_Gamma=1:Gamma_n
+            gamma = Gamma(index_Gamma);
+            online = true;
+            [w_online, its_online] = percTrain(X,t,maxIts, online, gamma);
+            online = false;
+            [w_batch, its_batch] = percTrain(X,t,maxIts, online, gamma);
+            Iterations_online(index_Gamma) = its_online;
+            Iterations_batch(index_Gamma) = its_batch;
+            no_figure_dataAndBorder = no_figure_dataset+index_Gamma;
+            displayDataAndBorder(data_1, data_2, w_online, w_batch, gamma, its_online, its_batch, no_figure_dataAndBorder);
+            close(no_figure_dataAndBorder);
+        end
+
+        no_figure_GammaToIts = no_figure_dataset+50;
+        displayGammaToIterations(Gamma, Iterations_online, Iterations_batch, no_figure_GammaToIts);
+        close(no_figure_GammaToIts);
+
     end
-end
-
-function MySpecialPerceptron(mu_1,sigma_1,mu_2,sigma_2, seed, no_figure)
-    n = 100;
-    d = 2;
-    [data, target] = genData(n, d, mu_1, sigma_1, mu_2, sigma_2, seed);
-    [data_1, data_2] = separateData(data, target);
     
-    displayData(data_1, data_2, no_figure);
-    
-    close(no_figure);
-
-    X = createHomogenData(data);
-    t = target;
-    maxIts = 10000;
-    Gamma = 1;
-    
-    online = true;
-    [w_online, its_online] = percTrain(X,t,maxIts, online, Gamma);
-    
-    online = false;
-    [w_batch, its_batch] = percTrain(X,t,maxIts, online, Gamma);
-    
-%     % test perceptron
-%     x_20 = X(20,:);
-%     t_20_o = perc(w_online,x_20);
-%     t_20_b = perc(w_batch,x_20);
-%     t_20 = t(20);
-%     
-%     x_60 = X(60,:);
-%     t_60_o = perc(w_online,x_60);
-%     t_60_b = perc(w_batch,x_60);
-%     t_60 = t(60);
-    
-    displayDataAndBorder(data_1, data_2, w_online, w_batch, Gamma, its_online, its_batch, no_figure);
 end
 
 function [data, target] = genData(n, d, mu_1, sigma_1, mu_2, sigma_2, seed)
@@ -80,7 +84,7 @@ function [data_1, data_2] = separateData(data, target)
     data_2 = data((m/2+1):m,:);
 end
 
-function displayData(data_1, data_2, no_figure)
+function displayData(data_1, data_2, mu_1, Sigma_1, mu_2, Sigma_2, no_figure)
 
     figure(no_figure);
     
@@ -89,17 +93,18 @@ function displayData(data_1, data_2, no_figure)
     grid
     plot(data_1(:,1),data_1(:,2),'ro', data_2(:,1),data_2(:,2),'gx');
     
-    title ('data set');
+    titleStr = strcat('data set; mu_1=', num2str(mu_1),', Sigma_1=', num2str(Sigma_1),'; mu_2=', num2str(mu_2),', Sigma_2=', num2str(Sigma_2));
+    title (titleStr);
     
     hold off;
     
-    figureName = strcat('DataSet_0', int2str(no_figure));
+    figureName = strcat('DataSet_', int2str(no_figure));
     
     saveas(gcf, figureName,'jpg');
 
 end
 
-function displayDataAndBorder(data_1, data_2, w_online, w_batch, Gamma, its_online, its_batch, no_figure)
+function displayDataAndBorder(data_1, data_2, w_online, w_batch, gamma, its_online, its_batch, no_figure)
 
     figure(no_figure);
     
@@ -121,7 +126,7 @@ function displayDataAndBorder(data_1, data_2, w_online, w_batch, Gamma, its_onli
         set (p2, 'Color', 'magenta');
     end
     
-    titleStr = strcat('data set and decision boundaries with Gamma = ',int2str(Gamma));
+    titleStr = strcat('data set and decision boundaries with gamma = ',num2str(gamma));
     
     title (titleStr);
     
@@ -134,9 +139,33 @@ function displayDataAndBorder(data_1, data_2, w_online, w_batch, Gamma, its_onli
     
     hold off;
     
-    figureName = strcat('DataSetAndDecisionBoundary_0', int2str(no_figure));
+    %figureName = strcat('DataSetAndDecisionBoundary_0', int2str(no_figure),'_',num2str(gamma));
+    figureName = strcat('DataSetAndDecisionBoundary_', int2str(no_figure));
     
     saveas(gcf, figureName,'jpg');
+end
+
+
+function displayGammaToIterations(Gamma, Iterations_online, Iterations_batch, no_figure)
+    figure(no_figure);
+    hold on;
+    grid
+    
+    titleStr = strcat('influence of gamma on no of iterations');
+    title (titleStr);
+    
+    plot(Gamma(:),Iterations_online(:),'r', Gamma(:),Iterations_batch(:),'g');
+
+    str_online = strcat('iterations_{online}');
+    str_batch = strcat('iterations_{batch}');
+    legend(str_online, str_batch, 'Location', 'SouthEast');
+
+    hold off;
+    
+    figureName = strcat('GammaToIterations_0', int2str(no_figure));
+    
+    saveas(gcf, figureName,'jpg');
+
 end
 
 function X = createHomogenData(data)
@@ -145,21 +174,21 @@ function X = createHomogenData(data)
     X = [ones(m,1),data];
 end
 
-function [w, its] = percTrain(X,t,maxIts, online, Gamma)
+function [w, its] = percTrain(X,t,maxIts, online, gamma)
    if online == true
-       [w, its] = onlineLearn(X,t,maxIts, Gamma);
+       [w, its] = onlineLearn(X,t,maxIts, gamma);
    else
-       [w, its] = batchLearn(X,t,maxIts, Gamma);
+       [w, its] = batchLearn(X,t,maxIts, gamma);
    end
 end
 
-function [w, its] = onlineLearn(X,t,maxIts, Gamma)
+function [w, its] = onlineLearn(X,t,maxIts, gamma)
     %online
-    % 1. Initialize w, Gamma
+    % 1. Initialize w, gamma
     % 2. do
     % 3. for i = 1 to N
     % 4. if w'*(x_i*t_i ) ? 0 (misclassified ith pattern)
-    % 5. w = w + Gamma*x_i*t_i
+    % 5. w = w + gamma*x_i*t_i
     % 6. end if
     % 7. end for
     % 8. until all patterns correctly classified
@@ -175,7 +204,7 @@ function [w, its] = onlineLearn(X,t,maxIts, Gamma)
         misclassfied = false;
         for i = 1:N
             if w'*(X(i,:)'*t(1,i)) <= 0 % (misclassified ith pattern)
-                w = w + Gamma*X(i,:)'*t(1,i);
+                w = w + gamma*X(i,:)'*t(1,i);
                 misclassfied = true;
             end
         end
@@ -183,10 +212,10 @@ function [w, its] = onlineLearn(X,t,maxIts, Gamma)
     end
 end
 
-function [w, its] = batchLearn(X,t,maxIts, Gamma)
+function [w, its] = batchLearn(X,t,maxIts, gamma)
 
     % batch
-    % 1. Initialize w, Gamma
+    % 1. Initialize w, gamma
     % 2. do
     % 3. w_delta = 0
     % 4. for i = 1 to N
@@ -194,7 +223,7 @@ function [w, its] = batchLearn(X,t,maxIts, Gamma)
     % 6. w_delta = w_delta + x_i*t_i
     % 7. end if
     % 8. end for
-    % 9. w = w + Gamma*w_delta
+    % 9. w = w + gamma*w_delta
     % 10. until all patterns correctly classified
     
     %X = zeros(n,d);
@@ -213,7 +242,7 @@ function [w, its] = batchLearn(X,t,maxIts, Gamma)
                 misclassfied = true;
             end
         end
-        w = w + Gamma*w_delta;
+        w = w + gamma*w_delta;
         its = its + 1;    
     end
 
