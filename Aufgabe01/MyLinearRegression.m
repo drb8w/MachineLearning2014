@@ -6,7 +6,7 @@ function MyLinearRegression()
     x_end = 5;
     x_interval = 0.1;
     G = 10;
-    [x,y]=generateXY(x_start,x_end,x_interval,G)
+    [x,y]=generateXY(x_start,x_end,x_interval,G);
 
     my = 0;
     Sigma = 0.7;
@@ -126,7 +126,7 @@ function Y = createPolynomValuesW(x,W)
     end
 end
 
-function W_star = trans_x_comp_w_star(x, y, lamba, dimension_start, dimension_end)
+function W_star = trans_x_comp_w_star(x, y, lamda, dimension_start, dimension_end)
     % w_star is a column vector
     % W_star is a list of column vectors
     A_i = createA(x,dimension_start);
