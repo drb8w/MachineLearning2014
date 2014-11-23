@@ -15,7 +15,6 @@ function MyPerceptron()
     end
 end
 
-
 function MySpecialPerceptron(mu_1,sigma_1,mu_2,sigma_2, seed, no_figure)
     n = 100;
     d = 2;
@@ -32,10 +31,10 @@ function MySpecialPerceptron(mu_1,sigma_1,mu_2,sigma_2, seed, no_figure)
     Gamma = 1;
     
     online = true;
-    w_online = percTrain(X,t,maxIts, online, Gamma);
+    [w_online, its_online] = percTrain(X,t,maxIts, online, Gamma);
     
     online = false;
-    w_batch = percTrain(X,t,maxIts, online, Gamma);
+    [w_batch, its_batch] = percTrain(X,t,maxIts, online, Gamma);
     
 %     % test perceptron
 %     x_20 = X(20,:);
@@ -48,7 +47,7 @@ function MySpecialPerceptron(mu_1,sigma_1,mu_2,sigma_2, seed, no_figure)
 %     t_60_b = perc(w_batch,x_60);
 %     t_60 = t(60);
     
-    displayDataAndBorder(data_1, data_2, w_online, w_batch, no_figure);
+    displayDataAndBorder(data_1, data_2, w_online, w_batch, Gamma, its_online, its_batch, no_figure);
 end
 
 function [data, target] = genData(n, d, mu_1, sigma_1, mu_2, sigma_2, seed)
@@ -90,6 +89,8 @@ function displayData(data_1, data_2, no_figure)
     grid
     plot(data_1(:,1),data_1(:,2),'ro', data_2(:,1),data_2(:,2),'gx');
     
+    title ('data set');
+    
     hold off;
     
     figureName = strcat('DataSet_0', int2str(no_figure));
@@ -98,15 +99,13 @@ function displayData(data_1, data_2, no_figure)
 
 end
 
-
-function displayDataAndBorder(data_1, data_2, w_online, w_batch, no_figure)
+function displayDataAndBorder(data_1, data_2, w_online, w_batch, Gamma, its_online, its_batch, no_figure)
 
     figure(no_figure);
     
     hold on;
     
     grid
-    plot(data_1(:,1),data_1(:,2),'ro', data_2(:,1),data_2(:,2),'gx');
     
     x_min = min(min(data_1(:,1)), min(data_2(:,1)));
     x_max = max(max(data_1(:,1)), max(data_2(:,1)));    
@@ -122,6 +121,17 @@ function displayDataAndBorder(data_1, data_2, w_online, w_batch, no_figure)
         set (p2, 'Color', 'magenta');
     end
     
+    titleStr = strcat('data set and decision boundaries with Gamma = ',int2str(Gamma));
+    
+    title (titleStr);
+    
+    %legend('w_{online}(1)+w_{online}(2)*x+w_{online}(3)*y = 0', 'w_{batch}(1)+w_{batch}(2)*x+w_{batch}(3)*y = 0','Location', 'SouthEast');
+    str_online = strcat('w_{online}(1)+w_{online}(2)*x+w_{online}(3)*y = 0; iterations: ', int2str(its_online));
+    str_batch = strcat('w_{batch}(1)+w_{batch}(2)*x+w_{batch}(3)*y = 0; iterations: ', int2str(its_batch));
+    legend(str_online, str_batch, 'Location', 'SouthEast');
+    
+    plot(data_1(:,1),data_1(:,2),'ro', data_2(:,1),data_2(:,2),'gx');
+    
     hold off;
     
     figureName = strcat('DataSetAndDecisionBoundary_0', int2str(no_figure));
@@ -135,15 +145,15 @@ function X = createHomogenData(data)
     X = [ones(m,1),data];
 end
 
-function w = percTrain(X,t,maxIts, online, Gamma)
+function [w, its] = percTrain(X,t,maxIts, online, Gamma)
    if online == true
-       w = onlineLearn(X,t,maxIts, Gamma);
+       [w, its] = onlineLearn(X,t,maxIts, Gamma);
    else
-       w = batchLearn(X,t,maxIts, Gamma);
+       [w, its] = batchLearn(X,t,maxIts, Gamma);
    end
 end
 
-function w = onlineLearn(X,t,maxIts, Gamma)
+function [w, its] = onlineLearn(X,t,maxIts, Gamma)
     %online
     % 1. Initialize w, Gamma
     % 2. do
@@ -173,7 +183,7 @@ function w = onlineLearn(X,t,maxIts, Gamma)
     end
 end
 
-function w = batchLearn(X,t,maxIts, Gamma)
+function [w, its] = batchLearn(X,t,maxIts, Gamma)
 
     % batch
     % 1. Initialize w, Gamma
