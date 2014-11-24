@@ -79,9 +79,12 @@ function [data_1, data_2] = separateData(data, target)
     
     [m,n] = size(data);
     
-    %HACK
-    data_1 = data(1:m/2,:);
-    data_2 = data((m/2+1):m,:);
+    %%HACK
+    %data_1 = data(1:m/2,:);
+    %data_2 = data((m/2+1):m,:);
+    
+    data_1 = data((target==1), : );
+    data_2 = data((target==-1), : );    
 end
 
 function displayData(data_1, data_2, mu_1, Sigma_1, mu_2, Sigma_2, no_figure)

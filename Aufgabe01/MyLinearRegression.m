@@ -48,7 +48,10 @@ function [x_t,t] = generateTrainingsSet(x,y,G,my,Sigma)
     % Y=grand(m,n,'nor',Av,Sd) generates random variates from the normal distribution with mean Av (real) and standard deviation Sd (real >= 0)
     x_t = x(1:6:end);
     [m,n] = size(x_t);
-    noise = grand(m,n,'nor',my, Sigma);
+    % Scilab
+    %noise = grand(m,n,'nor',my, Sigma);
+    % Matlab
+    noise = normrnd(my, Sigma,m,n);
     y_t = 2*x_t.^2-G*x_t+1;
     t = y_t + noise;    
 end
@@ -68,7 +71,7 @@ function plotDataY(x,Y)
     %set(gca(),"auto_clear","off");
     hold on;
     for index=1:m
-        plotArg = strcat([plotColors(modulo(index-1,j)+1),'-']);
+        plotArg = strcat([plotColors(mod(index-1,j)+1),'-']);
         %plot(x,Y(index,:),'ro-');
         plot(x,Y(index,:),plotArg);
     end
