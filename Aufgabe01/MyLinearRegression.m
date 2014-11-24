@@ -36,12 +36,24 @@ function MyLinearRegression()
     %plotDataY(x_t, t,'-', 'g'); 
     hold off %%DAN
 
-    % test of online LMS
-    E_threshold = 0.01;
-    lambda = 0.05;
+    % % test of online LMS
+    %E_threshold = 0.01;
+    %lambda = 0.05;
+    %A_3 = createA(x_t,3);
+    %w_online_3 = onlineLMS(A_3, y_t ,lambda, E_threshold);
+    %[Y_online, its_online] = createPolynomValuesW(x,w_online_3);
+    
+    % test influence of lambda on convergence of online LMS
+    Lambdas = 0.001:0.001:1;
+    [m_l,n_l]=size(Lambdas);
+    
     A_3 = createA(x_t,3);
-    w_online_3 = onlineLMS(A_3, y_t ,lambda, E_threshold);
-    Y_online = createPolynomValuesW(x,w_online_3);
+    E_threshold = 0.01;
+    for index_lambda=1:n_l    
+        w_online_3 = onlineLMS(A_3, y_t ,Lambdas(index_lambda), E_threshold);
+        [Y_online, its_online] = createPolynomValuesW(x,w_online_3);
+    
+    end
     
 
 end
@@ -162,7 +174,7 @@ function W_star = trans_x_comp_w_star(x, y, lambda, dimension_start, dimension_e
     end
 end
 
-function w_t = onlineLMS(A,t,lambda, E_threshold)
+function [w_t, its] = onlineLMS(A,t,lambda, E_threshold)
     % implement online learn from formula    
     %w(t+1) = w(t) + lambda* (t(i) - o(i)) * x(i);    
     
@@ -170,6 +182,7 @@ function w_t = onlineLMS(A,t,lambda, E_threshold)
     w_t = zeros(m,1);
     E_tm1 = intmax;
     E_t = 0;
+    its =0;
     while abs(E_t - E_tm1) > E_threshold
         E_tm1 = E_t;
         for i_index=1:n
@@ -180,7 +193,8 @@ function w_t = onlineLMS(A,t,lambda, E_threshold)
             E_t = E_t + (t_i-o_i)^2;
             % update w
             w_t = w_t + lambda*(t_i-o_i)*x_i;
-        end            
+        end
+        its = its + 1;
     end
 end
 
