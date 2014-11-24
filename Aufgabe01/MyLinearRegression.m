@@ -43,18 +43,21 @@ function MyLinearRegression()
     %w_online_3 = onlineLMS(A_3, y_t ,lambda, E_threshold);
     %[Y_online, its_online] = createPolynomValuesW(x,w_online_3);
     
-    % test influence of lambda on convergence of online LMS
+    %% 1.2.2.III - test influence of lambda on convergence of online LMS
     Lambdas = 0.001:0.001:1;
     [m_l,n_l]=size(Lambdas);
     
     A_3 = createA(x_t,3);
     E_threshold = 0.01;
+    Its_online_3 = zeros(1,n_l);
+    W_online_3 = zeros(4,n_l);
     for index_lambda=1:n_l    
-        w_online_3 = onlineLMS(A_3, y_t ,Lambdas(index_lambda), E_threshold);
-        [Y_online, its_online] = createPolynomValuesW(x,w_online_3);
-    
+        [w_online_3, its_online_3]= onlineLMS(A_3, y_t ,Lambdas(index_lambda), E_threshold);
+        Its_online_3(1,index_lambda) = its_online_3;
+        W_online_3(:,index_lambda) = w_online_3;
     end
     
+    % display iterations vs. lambda
 
 end
 
