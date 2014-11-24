@@ -52,6 +52,7 @@ function MyLinearRegression()
     
     A_3 = createA(x_t,3);
     E_threshold = 0.01;
+    %treshold_E_ratio = 1.01;
     maxIts = 100;
     Its_online_3 = zeros(1,n_l);
     W_online_3 = zeros(4,n_l);
@@ -188,10 +189,12 @@ function [w_t, its] = onlineLMS(A,t,lambda, E_threshold, maxIts)
     [m,n] = size(A);
     w_t = zeros(m,1);
     E_tm1 = intmax;
-    E_t = 0;
+    E_t = intmax/2;
     its =0;
     while abs(E_t - E_tm1) > E_threshold && its < maxIts
+    %while abs(E_tm1/E_t) > treshold_E_ratio && its < maxIts
         E_tm1 = E_t;
+        E_t=0;
         for i_index=1:n
             x_i = A(:,i_index);
             t_i = t(i_index);
