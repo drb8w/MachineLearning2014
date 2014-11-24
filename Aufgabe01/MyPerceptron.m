@@ -61,13 +61,15 @@ function [data, target] = genData(n, d, mu_1, sigma_1, mu_2, sigma_2, seed)
     target = zeros(1,n);
     n_1 = uint32(n/2);
     for i_n1=1:n_1
-        x_i1 = (randn(1,d)+mu_1)*sigma_1;
+        %x_i1 = (randn(1,d)+mu_1)*sigma_1;
+        x_i1 = mu_1+sigma_1*randn(1,d);
         data(i_n1,:) = x_i1(:);
         target(1,i_n1)= int8(1);
     end
     
     for i_n2=(n_1+1):n
-        x_i2 = (randn(1,d)+mu_2)*sigma_2;
+        %x_i2 = (randn(1,d)+mu_2)*sigma_2;
+        x_i2 = mu_2+sigma_2*randn(1,d);
         data(i_n2,:) = x_i2(:);
         target(1,i_n2)= int8(-1);
     end
