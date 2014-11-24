@@ -108,7 +108,7 @@ function A = createA(x,d)
     end    
 end
 
-function w_star = compute_w_star(A,y,lamda)
+function w_star = compute_w_star(A,y,lambda)
     % create pseudo inverse and compute Aw=b
     % see UNDERSTANDING MACHINE LEARNING, page 94ff
     AAT = A*A';
@@ -122,7 +122,7 @@ function w_star = compute_w_star(A,y,lamda)
         catch
             % check if above is not invertible
             [m,n] = size(AAT);
-            AAT = lamda*eye(m,n) + AAT;
+            AAT = lambda*eye(m,n) + AAT;
         end
     end
     w_star = A_plus*b;
@@ -148,46 +148,23 @@ function Y = createPolynomValuesW(x,W)
     end
 end
 
-function W_star = trans_x_comp_w_star(x, y, lamda, dimension_start, dimension_end)
+function W_star = trans_x_comp_w_star(x, y, lambda, dimension_start, dimension_end)
     % w_star is a column vector
     % W_star is a list of column vectors
     A_i = createA(x,dimension_start);
-    W_star = compute_w_star(A_i,y,lamda);
+    W_star = compute_w_star(A_i,y,lambda);
     for dimension_i=dimension_start+1:dimension_end
         A_i = createA(x,dimension_i);
         % add zero line at the bottom
         [m,n] = size(W_star);
         W_star = cat(1,W_star,zeros(1,n));
-        W_star = cat(2,W_star,compute_w_star(A_i,y,lamda));
+        W_star = cat(2,W_star,compute_w_star(A_i,y,lambda));
     end
 end
 
-% function w_n = onlineLMS(A,y,mu, e_threshold)
-%     % implement online learn from formula
-%     % see http://de.wikipedia.org/wiki/LMS-Algorithmus
-%     %e(n) = y(n) - x(n)'*w(n);
-%     %w(n+1) = w(n) + mu* e(n) * x(n);    
-%     [m,n] = size(A);
-%     %w_n = ones(m,1);
-%     w_n = zeros(m,1);
-%     cont = 1;
-%     while cont
-%         cont = 0;
-%         for n_index=1:n
-%             x_n = A(:,n_index);
-%             y_n = y(n_index);
-%             e_n = y_n - x_n'*w_n; % e_n ... error of equation n
-%             if e_n > e_threshold
-%                 cont = 1;
-%             end
-%             w_n = w_n + mu*e_n*x_n;
-%         end
-%     end
-% end
-
-function w_t = onlineLMS(A,t,lamda, E_threshold)
+function w_t = onlineLMS(A,t,lambda, E_threshold)
     % implement online learn from formula    
-    %w(t+1) = w(t) + lamda* (t(i) - o(i)) * x(i);    
+    %w(t+1) = w(t) + lambda* (t(i) - o(i)) * x(i);    
     
     [m,n] = size(A);
     w_t = zeros(m,1);
@@ -202,7 +179,7 @@ function w_t = onlineLMS(A,t,lamda, E_threshold)
             % calculate cost
             E_t = E_t + (t_i-o_i)^2;
             % update w
-            w_t = w_t + lamda*(t_i-o_i)*x_i;
+            w_t = w_t + lambda*(t_i-o_i)*x_i;
         end            
     end
 end
