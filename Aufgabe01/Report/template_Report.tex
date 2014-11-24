@@ -103,6 +103,14 @@ Der Algorithmus terminiert nicht da bei jedem Durchlauf Daten gefunden werden, w
 
 \section{Lineare Regression}
 
+Wir erstellen Daten im Bereich von $[0,5]$ mit einer Schrittweite von 0.1 aus der Funkion:
+
+\begin{equation}
+y=x^2-Gx+1
+\end{equation}
+
+Des weiteren erstellen wir eine Trainingsmenge aus jedem sechsten Datenpunkt und f\"ugen je einen Zufallswert aus $N(\mu=0,\Sigma=0.7)$ hinzu.
+
 \subsection{Gewichtsvektor mittels Gradientenabstieg bei quadratischer Fehlerfunktion}
 
 \subsection{Optimaler Gewichtsvektor $w^*$}
@@ -116,7 +124,7 @@ A^+ =& (AA^T)^{-1} &\textnormal{ f\"ur invertierbare } AA^T \\
 A^+ =& (AA^T)^{-1} + \lambda I &\textnormal{ f\"ur nicht invertierbare} AA^T \textnormal{ mit } \lambda<<1
 \end{eqnarray}
 
-Das ermittelte Ergebnis f\"ur $w^*$ mit normalisierten Daten lautet: $w^*=(1.0106678, - 10.0086, 1.8960336, 0.0262634)$.
+Das ermittelte Ergebnis f\"ur $w^*$ mit normalisierten Daten aus dem $\mathbb{R}^2$ lautet: $w^*=(1.0106678, - 10.0086, 1.8960336, 0.0262634)$.
 
 \subsection{Konvergenzverhalten in Abh\"angigkeit von $\gamma$}
 
