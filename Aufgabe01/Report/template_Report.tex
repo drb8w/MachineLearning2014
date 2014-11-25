@@ -132,6 +132,15 @@ Das ermittelte Ergebnis f\"ur $w^*$ mit normalisierten Daten aus dem $\mathbb{R}
 
 TODO: depend on valid online LMS!
 
+In Figur ~\ref{fig:ConvergenceOverGamma} ist zu sehen, da{\ss} die Anzahl der notwendigen Iterationen um zu einem Optimum zu gelangen mit der Gr\"o{\ss}e von $lambda$ exponentiell abnimmt, bis es sich auf einem fixen Wert einpendelt.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.4\textwidth]{./images/ConvergenceOverGamma.jpg} \\
+\caption{convergence over gamma}
+\label{fig:ConvergenceOverGamma}
+\end{figure}
+
 \subsection{Erwartungswert und Varianz von $w^*$ im Bezug zu Dimensionalität $d$ von $f(x)$}
 
 Erwartungswert und Varianz von $w^*$ im Bezug zu Dimensionalität $d$ von $f(x)$ zeigt, dass je h\"oher die Dimensionalität $d$ steigt, desto h\"oher auch die Varianz $Sigma$ der ermittelten Werte f\"ur $w^*$ f\"ur verrauschte Eingangsdaten wird. Dies ist auch klar, da höherdimensionale Koeffizienten von $w^*$ h\"ohere Frequenzen repr\"asentieren, welche durch das Verrauschen der Eingangsdaten st\"arker betroffen sind als niedrigere Frequenzen.
@@ -150,24 +159,24 @@ variance of weight coeffinients & deviation of weight coeffinients \\
 \label{tab:VarianceAndDeviantion}
 \end{table}
 
-Des weiteren ist in Figur ~\ref{tab:Overfitting} festzustellen, dass f\"ur h\"oherdimensionale Komponenten f\"ur $w^*$ durch overfitting der Kurve $f(x)$ die Varianz zunimmt, zu sehen in den Schwingungen der Kurven.
+Des weiteren ist in Figur ~\ref{fig:Overfitting} festzustellen, dass f\"ur h\"oherdimensionale Komponenten f\"ur $w^*$ durch overfitting der Kurve $f(x)$ die Varianz zunimmt, zu sehen in den Schwingungen der Kurven.
 
 \begin{figure}[h]
 \centering
 \includegraphics[width=0.4\textwidth]{./images/f_x_w_star_overDimensions.png} \\
 \caption{overfitting of $f_{w^*}(x)$ curves over dimension}
-\label{tab:Overfitting}
+\label{fig:Overfitting}
 \end{figure}
 
 \subsection{Mittlere quadratische Abweichung von $f_{w^*}(x^*)$}
 
-Wie erwartet, steigt auch die mittlere quadratische Abweichung von $f_{w^*}(x^*)$ mit der Zunahme der Dimension $d$ an, wie in Figur ~\ref{tab:MeanError} zu sehen ist.
+Wie erwartet, steigt auch die mittlere quadratische Abweichung von $f_{w^*}(x^*)$ mit der Zunahme der Dimension $d$ an, wie in Figur ~\ref{fig:MeanError} zu sehen ist.
 
 \begin{figure}[h]
 \centering
 \includegraphics[width=0.4\textwidth]{./images/MeanErrorOverDimensions.png} \\
 \caption{mean error of $f_{w^*}(x^*)$ curves over dimension}
-\label{tab:MeanError}
+\label{fig:MeanError}
 \end{figure}
 
 \subsection{Gewichtsvektor $w^*$ bei ungest\"orter Trainingsmenge \"uber Dimension $d$}
