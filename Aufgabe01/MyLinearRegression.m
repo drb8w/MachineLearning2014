@@ -1,6 +1,8 @@
 % Lineare Regression
 
 function MyLinearRegression()
+
+    %% preinitialisation and setup
     clc, clear, close all
     x_start = 0;
     x_end = 5;
@@ -15,23 +17,15 @@ function MyLinearRegression()
     y_t = t';
     lambda = 0.0001;
     
-    %%A_3 = createA(x_t,3);
-    %%w_star_3 = compute_w_star(A_3,y_t,lamda);
-    %%y_star_3 = createPolynomValues(x,w_star_3);
-    %
-    %%A_4 = createA(x_t,4);
-    %%w_star_4 = compute_w_star(A_4,y_t,lamda);
-    %%y_star_4 = createPolynomValues(x,w_star_4);
-    %
     %%plotData(x,y,x_t,t,y_star_3,y_star_4);
     %
     dimension_start = 3;
     dimension_end = 9;
     W_star = trans_x_comp_w_star(x_t,y_t,lambda,dimension_start, dimension_end);
-    Y = createPolynomValuesW(x,W_star);
+    Y_star = createPolynomValuesW(x,W_star);
 
     hold on %%DAN
-    plotDataY(x,Y,'-', 'r'); %%DAN
+    plotDataY(x,Y_star,'-', 'r'); %%DAN
     plotDataY(x_t, t,'o', 'g'); %%DAN
     %plotDataY(x_t, t,'-', 'g'); 
     hold off %%DAN
@@ -43,17 +37,32 @@ function MyLinearRegression()
     %w_online_3 = onlineLMS(A_3, y_t ,lambda, E_threshold);
     %[Y_online, its_online] = createPolynomValuesW(x,w_online_3);
     
-    %% 1.2.2.III - test influence of lambda on convergence of online LMS
-    %Lambdas = 0.001:0.001:1;
-    Lambdas = 0.001:0.001:10;
-    %Lambdas = 0.01:0.01:10;
-    %Lambdas = 0.1:0.1:1000;
-    [m_l,n_l]=size(Lambdas);
-    
+    %% 1.2.2.I - determine w_online_3    
+    lambda = 0.001;
     A_3 = createA(x_t,3);
     E_threshold = 0.01;
+    maxIts = 200;
+    
+    [w_online_3, its_online_3]= onlineLMS(A_3, y_t ,lambda, E_threshold, maxIts);
+    
+    % y_online_3 determined via onlineLMS
+    y_online_3 = createPolynomValues(x,w_online_3);    
+    
+    %% 1.2.2.II - determine w^* of quadric error function    
+    w_star_3 = compute_w_star(A_3,y_t,lambda);
+    
+    % y_star_3 determined via pseudoinverse
+    y_star_3 = createPolynomValues(x,w_star_3);
+    
+    % plot y, t, y_online_3 and y_star_3
+    no_figureLinReg = 50;
+    plotLinearRegressionResults(x, y, t, y_online_3, y_star_3, 3, no_figureLinReg);
+    
+    %% 1.2.2.III - test influence of lambda on convergence of online LMS
+    Lambdas = 0.001:0.001:10;
+    [m_l,n_l]=size(Lambdas);
+    
     %treshold_E_ratio = 1.01;
-    maxIts = 100;
     Its_online_3 = zeros(1,n_l);
     W_online_3 = zeros(4,n_l);
     for index_lambda=1:n_l    
@@ -63,6 +72,8 @@ function MyLinearRegression()
     end
     
     % display iterations vs. lambda
+    no_lambdaFigure = 100;
+    plotIterationsVsLambda(Its_online_3, Lambdas, no_lambdaFigure);
 
 end
 
@@ -117,6 +128,38 @@ function plotDataY(x,Y, mode, color)
     %hold off;%DAN
     %set(gca(),"auto_clear","on");    
 end
+
+function plotIterationsVsLambda(Iterations, Lambdas, no_figure)
+    figure(no_figure);
+        plotArg = '-r';
+    plot(Lambdas,Iterations,plotArg);
+    title('Iterations over Lambdas');
+    xlabel('Lambda');
+    ylabel('Iterations');
+end
+
+function plotLinearRegressionResults(x, y, t, y_online, y_star, dimension, no_figure)
+    figure(no_figure);
+    hold on;
+    
+    titleStr = strcat('linear regression result for ', int2str(dimension),' dimensional function f(x)');
+    
+    title(titleStr);
+    xlabel('x');
+    ylabel('f(x)');
+    
+    plot(x,y,'-b');
+    plot(x,y_online,'-r');
+    plot(x,y_star,'-g');
+    
+    str_org = 'y_{original}';
+    str_online = 'y_{online}';
+    str_star = 'y_{star}';
+    legend(str_org, str_online, str_star, 'Location', 'SouthEast');
+        
+    hold off; 
+end
+
 
 function A = createA(x,d)
     % d ... dimension of polynom

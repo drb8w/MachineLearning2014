@@ -201,7 +201,8 @@ function [w, its] = onlineLearn(X,t,maxIts, gamma)
     %X = zeros(n,d);
     %t = zeros(1,n);
     [N,d] = size(X);
-    w = ones(d,1); % column vector
+    %w = ones(d,1); % column vector
+    w = zeros(d,1); % column vector
 
     misclassfied = true;
     its = 0;
@@ -234,7 +235,8 @@ function [w, its] = batchLearn(X,t,maxIts, gamma)
     %X = zeros(n,d);
     %t = zeros(1,n);
     [N,d] = size(X);
-    w = ones(d,1); % column vector;
+    %w = ones(d,1); % column vector;
+    w = zeros(d,1); % column vector;
 
     misclassfied = true;
     its = 0;
