@@ -74,6 +74,39 @@ function MyLinearRegression()
     % display iterations vs. lambda
     no_lambdaFigure = 100;
     plotIterationsVsLambda(Its_online_3, Lambdas, no_lambdaFigure);
+    
+    %% 1.2.3.I - determine mu and Sigma of w^* coefficients
+    lambda = 0.001;
+    c = 3;
+    dimension_end = 9;
+    dimension_delta = dimension_end - dimension_start + 1;
+    my = 0;
+    Sigma = 0.7;
+    no_trainingsSets = 20;
+    
+    WW_star = zeros(dimension_end+1,dimension_delta,no_trainingsSets);
+    
+    for index_trainingsSet=1:no_trainingsSets
+        % determine new trainingsset
+        [x_t,t]=generateTrainingsSet(x,y,G,my,Sigma);
+        y_t = t';
+        % determine w_star for given dimensions
+        W_star = trans_x_comp_w_star(x_t,y_t,lambda,dimension_start, dimension_end);
+        % track all w_stars for given trainingsset
+        WW_star(:,:,index_trainingsSet)=W_star;
+    end
+    
+    %calculate mu and Sigma over given w_stars
+    for index_dimension=1:dimension_delta
+        % generate correct matrix for specific dimension
+        W_dim_trainings = WW_star(1:dimension_start+index_dimension,index_dimension,:);
+        W_trainings = reshape(W_dim_trainings,dimension_start+index_dimension,no_trainingsSets)';
+        % For matrix input X, where each row is an observation, and each column is a variable, 
+        % cov(X) is the covariance matrix. diag(cov(X)) is a vector of variances for each column, 
+        % and sqrt(diag(cov(X))) is a vector of standard deviations
+        vec_variance = diag(cov(W_trainings));
+        vec_deviation = sqrt(vec_variance);
+    end
 
 end
 
