@@ -54,7 +54,7 @@ function plotDataY(x,Y, mod, col)
     set(gca(),"auto_clear","on");    
 endfunction
 
-function plotDataY_star(x,Y_star, x_t, y_t, no_figure)
+function plotDataY_star(x,Y_star, x_t, y_t, dimension_start, no_figure)
     [lhs,rhs]=argn(0);
     plotColors = ['r','g','b','c','m','y'];
     [m,n] = size(Y_star);
@@ -66,10 +66,16 @@ function plotDataY_star(x,Y_star, x_t, y_t, no_figure)
     for index=1:m
         plotArg = strcat([plotColors(modulo(index-1,j)+1),'-']);
         plot(x,Y_star(index,:),plotArg);
-        Str_legend = [Str_legend,strcat('dimension',string(index))];
+        Str_legend = [Str_legend, strcat(['f(x) for d=',string(dimension_start+index-1)])];
     end
     plotArg = 'go';
     plot(x_t,y_t,plotArg);
+    
+    Str_legend = [Str_legend, 'f(x_t) = trainingset'];
+    
+    title('f(x) of w^* for multiple dimensions d in f(x) over x');
+    xlabel('x');
+    ylabel('f(x)');
     
     legend(Str_legend);
     
@@ -247,7 +253,7 @@ endfunction
      ////hold off %%DAN
      
      no_figure_Y_star = 10;
-     plotDataY_star(x,Y_star, x_t, y_t, no_figure_Y_star);
+     plotDataY_star(x,Y_star, x_t, y_t, dimension_start, no_figure_Y_star);
     
     // 1.2.2.I - determine w_online_3    
     lambda = 0.001;

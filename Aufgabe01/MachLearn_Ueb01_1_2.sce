@@ -147,7 +147,7 @@ x_start = 0;
 x_end = 5;
 x_interval = 0.1;
 G = 10;
-[x,y]=generateXY(x_start,x_end,x_interval,G)
+[x,y]=generateXY(x_start,x_end,x_interval,G);
 
 my = 0;
 Sigma = 0.7;
