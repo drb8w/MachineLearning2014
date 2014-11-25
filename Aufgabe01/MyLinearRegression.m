@@ -82,7 +82,7 @@ function MyLinearRegression()
     dimension_delta = dimension_end - dimension_start + 1;
     my = 0;
     Sigma = 0.7;
-    no_trainingsSets = 20;
+    no_trainingsSets = 2000;
     
     WW_star = zeros(dimension_end+1,dimension_delta,no_trainingsSets);
     
@@ -97,17 +97,48 @@ function MyLinearRegression()
     end
     
     %calculate mu and Sigma over given w_stars
+    Variances = zeros(dimension_end+1,dimension_delta);
+    Deviations = zeros(dimension_end+1,dimension_delta);
     for index_dimension=1:dimension_delta
         % generate correct matrix for specific dimension
-        W_dim_trainings = WW_star(1:dimension_start+index_dimension,index_dimension,:);
-        W_trainings = reshape(W_dim_trainings,dimension_start+index_dimension,no_trainingsSets)';
+        dim_w = dimension_start+index_dimension;
+        W_dim_trainings = WW_star(1:dim_w,index_dimension,:);
+        W_trainings = reshape(W_dim_trainings,dim_w,no_trainingsSets)';
         % For matrix input X, where each row is an observation, and each column is a variable, 
         % cov(X) is the covariance matrix. diag(cov(X)) is a vector of variances for each column, 
         % and sqrt(diag(cov(X))) is a vector of standard deviations
         vec_variance = diag(cov(W_trainings));
         vec_deviation = sqrt(vec_variance);
+        Variances(1:dim_w,index_dimension) = vec_variance;
+        Deviations(1:dim_w,index_dimension) = vec_deviation;        
     end
-
+    
+    %% 1.2.3.II - plot for x^*=2 in the medium quadric error dimensions for f_{w^*}(x^*)
+    [x_2,y_2]=generateXY(2,2,1,G);
+    YY_star = zeros(dimension_delta,no_trainingsSets);
+    for index_trainingsSet=1:no_trainingsSets
+        W_star = WW_star(:,:,index_trainingsSet);
+        Y_star = createPolynomValuesW(x_2,W_star); % column-vector for all dimensions ? 
+        YY_star(:,index_trainingsSet) = Y_star;
+    end
+    
+    % search every row in YY_star as medium of given dimension
+    y_2_trainingsset = repmat(y_2, no_trainingsSets, 1);
+    E = zeros(dimension_delta,1);
+    for index_dimension=1:dimension_delta
+       y_star_trainingsset = YY_star(index_dimension,:)';
+       
+       y_2_delta = y_2_trainingsset - y_star_trainingsset;
+       e_trainingsset = y_2_delta.^2;
+       e = mean(e_trainingsset);
+       E(index_dimension)= e;
+    end
+    
+    % plot error E in regards to dimensionality
+    no_figure_meanerror = 200;
+    plotMeanError(E, dimension_start, dimension_end, no_figure_meanerror);
+    
+    
 end
 
 function [x,y]=generateXY(x_start,x_end,x_interval,G)
@@ -191,6 +222,21 @@ function plotLinearRegressionResults(x, y, t, y_online, y_star, dimension, no_fi
     legend(str_org, str_online, str_star, 'Location', 'SouthEast');
         
     hold off; 
+end
+
+function plotMeanError(E, dimension_start, dimension_end, no_figure)
+    figure(no_figure);
+    
+    titleStr = strcat('mean error of repititive y^* calculations over dimensions');
+    
+    title(titleStr);
+    xlabel('dimension');
+    ylabel('mean error');
+
+    x = dimension_start:dimension_end;
+    y = E';
+    plot(x,y,'-r');
+
 end
 
 
