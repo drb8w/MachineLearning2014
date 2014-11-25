@@ -130,7 +130,28 @@ Das ermittelte Ergebnis f\"ur $w^*$ mit normalisierten Daten aus dem $\mathbb{R}
 
 \subsection{Erwartungswert und Varianz von $w^*$ im Bezug zu Dimensionalität $d$ von $f(x)$}
 
-Erwartungswert und Varianz von $w^*$ im Bezug zu Dimensionalität $d$ von $f(x)$ zeigt, dass je h\"oher die Dimensionalität $d$ steigt, desto h\"oher auch die Varianz $Sigma$ der ermittelten Werte f\"ur $w^*$ f\"ur verrauschte Eingangsdaten wird.
+Erwartungswert und Varianz von $w^*$ im Bezug zu Dimensionalität $d$ von $f(x)$ zeigt, dass je h\"oher die Dimensionalität $d$ steigt, desto h\"oher auch die Varianz $Sigma$ der ermittelten Werte f\"ur $w^*$ f\"ur verrauschte Eingangsdaten wird. Dies ist auch klar, da höherdimensionale Koeffizienten von $w^*$ h\"ohere Frequenzen repr\"asentieren, welche durch das Verrauschen der Eingangsdaten st\"arker betroffen sind als niedrigere Frequenzen.
+Interessanterweise steigt die Varianz aller Koeffizienten von $w^*$ in Tabelle ~\ref{tab:VarianceAndDeviantion} nur bis zu einer Dimensionalit\"at des Problems von 6, danach f\"allt sie wieder. Es ist aber anzunehmen, dass dies zum Einen aufgrund von Unzul\"anglichkeiten beim generieren der Pseudoinversen zur Berechnung von $w^*$ liegt und zum Anderen von der fehlenden Betrachunng noch h\"oherer Dimensionen, wo sich globale Anstieg der Varianz sicherlich fortsetzt.
+
+\begin{table}[h]
+\begin{tabular}{| c | c |}
+\hline
+ & \\
+\includegraphics[width=0.4\textwidth]{./images/VarianceWeightCoeffinientsOverDimension.png} & \includegraphics[width=0.4\textwidth]{./images/DeviationWeightCoeffinientsOverDimension.png} \\
+ & \\
+variance of weight coeffinients & deviation of weight coeffinients \\
+\hline
+\end{tabular}
+\caption{variance and deviantion of $w^*$ over dimension}
+\label{tab:VarianceAndDeviantion}
+\end{table}
 
 Des weiteren ist festzustellen, dass f\"ur h\"oherdimensionale Komponenten f\"ur $w^*$ durch overfitting die Varianz zunimmt.
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.4\textwidth]{./images/f_x_w_star_overDimensions.png} \\
+\caption{overfitting of $y^*$ curves over dimension}
+\label{tab:Overfitting}
+\end{figure}
+
 \end{document}          
