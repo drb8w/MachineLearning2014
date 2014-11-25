@@ -8,7 +8,9 @@ function MyPerceptron()
     Sigma_1 = [5,4,3,2];
 
     Mu_2 = [2, 2, 2, 2]; 
-    Sigma_2 = [2,3,4,5];
+    %Sigma_2 = [2,3,4,5];
+    %Sigma_2 = [3,3,3,3];
+    Sigma_2 = [4,4,4,4];
 
     Seed = [2,2,2,2];
     

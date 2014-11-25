@@ -14,8 +14,8 @@
 \begin{document}
 \maketitle
 
-\begin{abstract}
-\end{abstract}
+%\begin{abstract}
+%\end{abstract}
 
 \section{Einfaches Perceptron - Datengeneration}
 
@@ -47,7 +47,7 @@ Gegeben sind vier Datensets a 100 Beobachtungen von 2-dimensionalen Eingangsdate
 
 \subsection{Anzahl Iterationen}
 
-Die Anzahl der Iterationen h\"angt ma{\ss}geblich von der \emph{margin} der separierbaren Daten ab. Je kleiner die margin, desto mehr Iterationen sind notwendig, bis der Algorithmus terminiert.
+Die Anzahl der Iterationen h\"angt ma{\ss}geblich von der \emph{margin} der separierbaren Daten ab. Je kleiner die margin, das hei{\ss}t der Minimalabstand zwischen den beiden Mengen, desto mehr Iterationen sind notwendig, bis der Algorithmus terminiert. Dies ist aus der Angabe der Iterationen aus ~\ref{tab:DataSetsAndBounds} ersichtlich.
 
 
 \subsection{Welchen Einflu{\ss} hat die Schrittweite}
@@ -67,7 +67,7 @@ Es ist zu beobachten, da{\ss} der batch-Algorithmus keine gro{\ss}en Abweichunge
  & \\
 \hline
 \end{tabular}
-\caption{Iteration distribution over gamma}
+\caption{iteration distribution over gamma}
 \label{tab:GammaToIterations}
 \end{table}
 
@@ -92,7 +92,7 @@ $set_1$: $\mu_1=10$, $\Sigma_1=3$ & $set_1$: $\mu_1=10$, $\Sigma_1=2$ \\
 $set_2$: $\mu_2=2$, $\Sigma_2=4$ & $set_2$: $\mu_2=2$, $\Sigma_2=5$ \\
 \hline
 \end{tabular}
-\caption{Iteration distribution over gamma}
+\caption{iteration distribution over gamma}
 \label{tab:DataSetsAndBounds}
 \end{table}
 
@@ -113,6 +113,8 @@ Des weiteren erstellen wir eine Trainingsmenge aus jedem sechsten Datenpunkt und
 
 \subsection{Gewichtsvektor mittels Gradientenabstieg bei quadratischer Fehlerfunktion}
 
+TODO: depend on valid online LMS!
+
 \subsection{Optimaler Gewichtsvektor $w^*$}
 
 Den optimalen Gewichtsvektor $w^*$ kann man \"uber die Bestimmung der Pseudoinversen $A^+$ f\"ur die Gleichung $Aw^*=b$ ermitteln.
@@ -127,6 +129,8 @@ A^+ =& (AA^T)^{-1} + \lambda I &\textnormal{ f\"ur nicht invertierbare} AA^T \te
 Das ermittelte Ergebnis f\"ur $w^*$ mit normalisierten Daten aus dem $\mathbb{R}^2$ lautet: $w^*=(1.0106678, - 10.0086, 1.8960336, 0.0262634)$.
 
 \subsection{Konvergenzverhalten in Abh\"angigkeit von $\gamma$}
+
+TODO: depend on valid online LMS!
 
 \subsection{Erwartungswert und Varianz von $w^*$ im Bezug zu Dimensionalität $d$ von $f(x)$}
 
@@ -146,12 +150,42 @@ variance of weight coeffinients & deviation of weight coeffinients \\
 \label{tab:VarianceAndDeviantion}
 \end{table}
 
-Des weiteren ist festzustellen, dass f\"ur h\"oherdimensionale Komponenten f\"ur $w^*$ durch overfitting die Varianz zunimmt.
+Des weiteren ist in Figur ~\ref{tab:Overfitting} festzustellen, dass f\"ur h\"oherdimensionale Komponenten f\"ur $w^*$ durch overfitting der Kurve $f(x)$ die Varianz zunimmt, zu sehen in den Schwingungen der Kurven.
+
 \begin{figure}[h]
 \centering
 \includegraphics[width=0.4\textwidth]{./images/f_x_w_star_overDimensions.png} \\
-\caption{overfitting of $y^*$ curves over dimension}
+\caption{overfitting of $f_{w^*}(x)$ curves over dimension}
 \label{tab:Overfitting}
 \end{figure}
+
+\subsection{Mittlere quadratische Abweichung von $f_{w^*}(x^*)$}
+
+Wie erwartet, steigt auch die mittlere quadratische Abweichung von $f_{w^*}(x^*)$ mit der Zunahme der Dimension $d$ an, wie in Figur ~\ref{tab:MeanError} zu sehen ist.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.4\textwidth]{./images/MeanErrorOverDimensions.png} \\
+\caption{mean error of $f_{w^*}(x^*)$ curves over dimension}
+\label{tab:MeanError}
+\end{figure}
+
+\subsection{Gewichtsvektor $w^*$ bei ungest\"orter Trainingsmenge \"uber Dimension $d$}
+
+Die resultierenden Kurven f\"ur $f_{w^*}(x)$ welche aus der ungest\"orten Trainingsmenge ermittelt wurden fitten die Originalpunkte aus der Originalkurve $y = 2x^2-Gx+1$ naturgem\"a{\ss} wesentlich besser als die Kurven, welche auf der verrauschen Trainingsmenge basieren. Dies ist in Tabelle ~\ref{tab:f_x_overDimension} zu sehen. Der Ausrei{\ss}er bei Dimension $9$ ist wiederum auf Schw\"achen in der Bestimmung der Pseudoinversen zur\"uckzuf\"uhren.
+
+\begin{table}[h]
+\begin{tabular}{| c | c |}
+\hline
+ & \\
+\includegraphics[width=0.4\textwidth]{./images/f_x_w_star_overDimensions.png} & \includegraphics[width=0.4\textwidth]{./images/f_x_w_star_not_preturbed_overDimensions.png} \\
+ & \\
+$w^*$ based on preturbed trainingsset & $w^*$ based on not preturbed trainingsset \\
+\hline
+\end{tabular}
+\caption{$f_{w^*}(x)$ over dimension}
+\label{tab:f_x_overDimension}
+\end{table}
+
 
 \end{document}          
