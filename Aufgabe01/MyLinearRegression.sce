@@ -55,7 +55,6 @@ function plotDataY(x,Y, mod, col)
 endfunction
 
 function plotDataY_star(x,Y_star, x_t, y_t, dimension_start, no_figure)
-    [lhs,rhs]=argn(0);
     plotColors = ['r','g','b','c','m','y'];
     [m,n] = size(Y_star);
     [i,j] = size(plotColors);
@@ -246,11 +245,6 @@ endfunction
 
      W_star = trans_x_comp_w_star(x_t,y_t,lambda,dimension_start, dimension_end);
      Y_star = createPolynomValuesW(x,W_star);
- 
-     ////hold on %%DAN
-     //plotDataY(x,Y_star,'-');
-     ////plotDataY(x_t, t,'o', 'g');
-     ////hold off %%DAN
      
      no_figure_Y_star = 10;
      plotDataY_star(x,Y_star, x_t, y_t, dimension_start, no_figure_Y_star);
@@ -332,6 +326,23 @@ endfunction
         Variances(1:dim_w,index_dimension) = vec_variance;
         Deviations(1:dim_w,index_dimension) = vec_deviation;        
     end
+    
+    // display Variances and Deviations in a surface plot
+    no_figure_Variances = 400;
+    figure(no_figure_Variances);
+    surf(Variances);
+    title('variance of weight coefficient over dimension d');
+    xlabel('weight coefficient');
+    ylabel('dimension d');
+    zlabel('variance');
+    
+    no_figure_Deviations = 500;
+    figure(no_figure_Deviations);
+    surf(Deviations);
+    title('deviation of weight coefficient over dimension d');
+    xlabel('weight coefficient');
+    ylabel('dimension d');
+    zlabel('deviation');
     
     // 1.2.3.II - plot for x^*=2 in the medium quadric error dimensions for f_{w^*}(x^*)
     [x_2,y_2]=generateXY(2,2,1,G);

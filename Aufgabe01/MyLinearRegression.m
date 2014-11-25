@@ -23,12 +23,8 @@ function MyLinearRegression()
     W_star = trans_x_comp_w_star(x_t,y_t,lambda,dimension_start, dimension_end);
     Y_star = createPolynomValuesW(x,W_star);
 
-    no_figure_y_star = 25;    
-    hold on %%DAN
-    plotDataY(x,Y_star,'-', no_figure_y_star, 'r'); %%DAN
-    %plotDataY(x_t, t,'o', no_figure_y_star, 'g'); %%DAN
-    %plotDataY(x_t, t,'-', no_figure_y_star, 'g'); 
-    hold off %%DAN
+    no_figure_Y_star = 10;
+    plotDataY_star(x,Y_star, x_t, y_t, dimension_start, no_figure_Y_star);
 
     % % test of online LMS
     %E_threshold = 0.01;
@@ -112,6 +108,23 @@ function MyLinearRegression()
         Variances(1:dim_w,index_dimension) = vec_variance;
         Deviations(1:dim_w,index_dimension) = vec_deviation;        
     end
+    
+    % display Variances and Deviations in a surface plot
+    no_figure_Variances = 400;
+    figure(no_figure_Variances);
+    surf(Variances);
+    title('variance of weight coefficient over dimension d');
+    xlabel('weight coefficient');
+    ylabel('dimension d');
+    zlabel('variance');
+    
+    no_figure_Deviations = 500;
+    figure(no_figure_Deviations);
+    surf(Deviations);
+    title('deviation of weight coefficient over dimension d');
+    xlabel('weight coefficient');
+    ylabel('dimension d');
+    zlabel('deviation');
     
     %% 1.2.3.II - plot for x^*=2 in the medium quadric error dimensions for f_{w^*}(x^*)
     [x_2,y_2]=generateXY(2,2,1,G);
@@ -199,6 +212,37 @@ function plotDataY(x,Y, mode, no_figure, color)
     %hold off;%DAN
     %set(gca(),"auto_clear","on");    
 end
+
+function plotDataY_star(x,Y_star, x_t, y_t, dimension_start, no_figure)
+    
+    plotColors = ['r','g','b','c','m','y'];
+    [m,n] = size(Y_star);
+    [i,j] = size(plotColors);
+    Str_legend =[];
+    
+    figure(no_figure);
+    %set(gca(),"auto_clear","off");
+    hold on;
+    for index=1:m
+        plotArg = strcat([plotColors(mod(index-1,j)+1),'-']);
+        plot(x,Y_star(index,:),plotArg);
+        Str_legend = [Str_legend, strcat(['f(x) for d=',string(dimension_start+index-1)])];
+    end
+    plotArg = 'go';
+    plot(x_t,y_t,plotArg);
+    
+    Str_legend = [Str_legend, 'f(x_t) = trainingset'];
+    
+    title('f(x) of w^* for multiple dimensions d in f(x) over x');
+    xlabel('x');
+    ylabel('f(x)');
+    
+    legend(Str_legend);
+    
+    %set(gca(),"auto_clear","on");
+    hold off;
+end
+
 
 function plotIterationsVsLambda(Iterations, Lambdas, no_figure)
     figure(no_figure);
