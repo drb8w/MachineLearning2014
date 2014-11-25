@@ -16,19 +16,19 @@ function MyLinearRegression()
     y_t = t';
     dimension_start = 3;
     dimension_end = 9;
+    lambda = 0.0001;
     
-%     lambda = 0.0001;
-    
-%     %%plotData(x,y,x_t,t,y_star_3,y_star_4);
-%     %
-%     W_star = trans_x_comp_w_star(x_t,y_t,lambda,dimension_start, dimension_end);
-%     Y_star = createPolynomValuesW(x,W_star);
-% 
-%     hold on %%DAN
-%     plotDataY(x,Y_star,'-', 'r'); %%DAN
-%     plotDataY(x_t, t,'o', 'g'); %%DAN
-%     %plotDataY(x_t, t,'-', 'g'); 
-%     hold off %%DAN
+    %%plotData(x,y,x_t,t,y_star_3,y_star_4);
+    %
+    W_star = trans_x_comp_w_star(x_t,y_t,lambda,dimension_start, dimension_end);
+    Y_star = createPolynomValuesW(x,W_star);
+
+    no_figure_y_star = 25;    
+    hold on %%DAN
+    plotDataY(x,Y_star,'-', no_figure_y_star, 'r'); %%DAN
+    %plotDataY(x_t, t,'o', no_figure_y_star, 'g'); %%DAN
+    %plotDataY(x_t, t,'-', no_figure_y_star, 'g'); 
+    hold off %%DAN
 
     % % test of online LMS
     %E_threshold = 0.01;
@@ -76,12 +76,12 @@ function MyLinearRegression()
     plotIterationsVsLambda(Its_online_3, Lambdas, no_lambdaFigure);
     
     %% 1.2.3.I - determine mu and Sigma of w^* coefficients
-    lambda = 0.001;
-    c = 3;
-    dimension_end = 9;
+    %lambda = 0.001;
+    %dimension_start = 3;
+    %dimension_end = 9;
     dimension_delta = dimension_end - dimension_start + 1;
-    mu = 0;
-    Sigma = 0.7;
+    %mu = 0;
+    %Sigma = 0.7;
     no_trainingsSets = 2000;
     
     WW_star = zeros(dimension_end+1,dimension_delta,no_trainingsSets);
@@ -179,7 +179,8 @@ function plotData(x,y,x_t,t,y_star, y_star_II)
     %set(gca(),"auto_clear","on");    
 end
 
-function plotDataY(x,Y, mode, color)
+function plotDataY(x,Y, mode, no_figure, color)
+    figure(no_figure);
     plotColors = ['r','g','b','c','m','y'];
     [m,n] = size(Y);
     [i,j] = size(plotColors);
@@ -187,7 +188,7 @@ function plotDataY(x,Y, mode, color)
     %set(gca(),"auto_clear","off");
     %hold on;%DAN
     for index=1:m
-        if(nargin<4)
+        if(nargin<5)
             plotArg = strcat([plotColors(mod(index-1,j)+1),mode]);
         else
             plotArg = strcat([color,mode]);
