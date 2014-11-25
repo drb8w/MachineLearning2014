@@ -375,6 +375,13 @@ endfunction
     [x_t_notPret,t_notPret]=generateTrainingsSet(x,y,G,mu,Sigma);
     y_t_notPret = t_notPret';
     W_star_notPret = trans_x_comp_w_star(x_t_notPret,y_t_notPret,lambda,dimension_start, dimension_end);
+    
+    // plot again resulting Y_star values
+    Y_star_notPret = createPolynomValuesW(x,W_star_notPret);
+    
+    no_figure_Y_star_notPret = 600;
+    plotDataY_star(x,Y_star_notPret, x_t, y_t, dimension_start, no_figure_Y_star_notPret);
+
 //endfunction
 
 
