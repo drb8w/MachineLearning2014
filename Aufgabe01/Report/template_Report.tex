@@ -8,7 +8,7 @@
 
 % Title Page
 \title{MachineLearning for Visual Computing Aufgabenblock 1}
-\author{Christian Br\"andle, Doris Antensteiner}
+\author{Christian Br\"andle - Gruppe 5}
 
 
 \begin{document}
@@ -108,11 +108,21 @@ Wir erstellen Daten im Bereich von $[0,5]$ mit einer Schrittweite von 0.1 aus de
 y=x^2-Gx+1
 \end{equation}
 
+wobei $G=10$ angenommen wird.
+
 Des weiteren erstellen wir eine Trainingsmenge aus jedem sechsten Datenpunkt und f\"ugen je einen Zufallswert aus $N(\mu=0,\Sigma=0.7)$ hinzu.
 
 \section{Gewichtsvektor mittels Gradientenabstieg bei quadratischer Fehlerfunktion}
 
-TODO: depend on valid online LMS!
+Der Gewichtsvektor $w_{online}$ welcher aufgrund des online Verfahrens f\"ur \emph{LMS} (least mean square) ermittelte wurde kommt in der Anwendung auf die Funktion $f(x)=x^2-Gx+1$ dem optimalen $w^*$ zwar nahe, erreicht dessen Qualit\"at aber nicht. Eine Verringerung der Fehlertoleranz w\"urde hier sicher Abhilfe schaffen.
+In der Anwendung auf die Funktion $f(x)$ ergeben sich wie in Figur ~\ref{fig:onlineVsBatchLMS} gezeigt f\"ur die Dimensionalit\"at $3$ die gezeigten Kurven.
+  
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.4\textwidth]{./images/OnlineVsBatchLMS.png} \\
+\caption{online vs batch LMS}
+\label{fig:onlineVsBatchLMS}
+\end{figure}  
 
 \section{Optimaler Gewichtsvektor $w^*$}
 
@@ -129,9 +139,7 @@ Das ermittelte Ergebnis f\"ur $w^*$ mit normalisierten Daten aus dem $\mathbb{R}
 
 \section{Konvergenzverhalten in Abh\"angigkeit von $\gamma$}
 
-TODO: depend on valid online LMS!
-
-In Figur ~\ref{fig:ConvergenceOverGamma} ist zu sehen, da{\ss} die Anzahl der notwendigen Iterationen um zu einem Optimum zu gelangen mit der Gr\"o{\ss}e von $lambda$ exponentiell abnimmt, bis es sich auf einem fixen Wert einpendelt.
+In Figur ~\ref{fig:ConvergenceOverGamma} ist zu sehen, da{\ss} die Anzahl der notwendigen Iterationen um zu einem Optimum zu gelangen mit der Gr\"o{\ss}e von $lambda$ exponentiell abnimmt bis sie bei einem Wert von $\lambda \approx 0.0001$ ein Minimum erreichen. Danach steigt die Anzahl der notwendigen Iterationen wieder an.
 
 \begin{figure}[h]
 \centering
@@ -162,7 +170,7 @@ Des weiteren ist in Figur ~\ref{fig:Overfitting} festzustellen, dass f\"ur h\"oh
 
 \begin{figure}[h]
 \centering
-\includegraphics[width=0.4\textwidth]{./images/f_x_w_star_overDimensions.png} \\
+\includegraphics[width=0.4\textwidth]{./images/f_x_w_star_overDimensions_stable.png} \\
 \caption{overfitting of $f_{w^*}(x)$ curves over dimension}
 \label{fig:Overfitting}
 \end{figure}
@@ -188,6 +196,10 @@ Die resultierenden Kurven f\"ur $f_{w^*}(x)$ welche aus der ungest\"orten Traini
  & \\
 \includegraphics[width=0.4\textwidth]{./images/f_x_w_star_overDimensions.png} & \includegraphics[width=0.4\textwidth]{./images/f_x_w_star_not_preturbed_overDimensions.png} \\
  & \\
+ \hline
+ & \\
+\includegraphics[width=0.4\textwidth]{./images/f_x_w_star_overDimensions_stable.png} & \includegraphics[width=0.4\textwidth]{./images/f_x_w_star_not_preturbed_overDimensions_stable.png} \\
+ & \\ 
 $w^*$ based on preturbed trainingsset & $w^*$ based on not preturbed trainingsset \\
 \hline
 \end{tabular}
