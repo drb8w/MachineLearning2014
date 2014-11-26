@@ -19,11 +19,6 @@
 
 \section{Einfaches Perceptron - Datengeneration}
 
-% Mu_1 = [14,14,14,14]; 
-% Sigma_1 = [5,4,3,2];
-% Mu_2 = [2, 2, 2, 2]; 
-% Sigma_2 = [2,3,4,5];
-
 Gegeben sind vier Datensets a 100 Beobachtungen von 2-dimensionalen Eingangsdaten, welche normalverteilt sind. Die Figuren in Tabelle ~\ref{tab:DataSets} verdeutlichen dies.
 
 
@@ -33,13 +28,17 @@ Gegeben sind vier Datensets a 100 Beobachtungen von 2-dimensionalen Eingangsdate
  & \\
 \includegraphics[width=0.4\textwidth]{./images/DataSet_100.jpg} & \includegraphics[width=0.4\textwidth]{./images/DataSet_200.jpg} \\
  & \\
+ $set_{1}$: $\mu_1=34$, $\Sigma_1=10$ & $set_{1}$: $\mu_1=34$, $\Sigma_1=8$ \\
+ $set_{2}$: $\mu_2=2$, $\Sigma_2=2$ & $set_{2}$: $\mu_2=2$, $\Sigma_2=3$ \\
 \hline
  & \\
 \includegraphics[width=0.4\textwidth]{./images/DataSet_300.jpg} & \includegraphics[width=0.4\textwidth]{./images/DataSet_400.jpg} \\
+$set_1$: $\mu_1=34$, $\Sigma_1=6$ & $set_1$: $\mu_1=34$, $\Sigma_1=4$ \\
+$set_2$: $\mu_2=2$, $\Sigma_2=4$ & $set_2$: $\mu_2=2$, $\Sigma_2=5$ \\
  & \\
 \hline
 \end{tabular}
-\caption{Iteration distribution over gamma}
+\caption{data sets of separatable data}
 \label{tab:DataSets}
 \end{table}
 
@@ -47,13 +46,13 @@ Gegeben sind vier Datensets a 100 Beobachtungen von 2-dimensionalen Eingangsdate
 
 \section{Anzahl Iterationen}
 
-Die Anzahl der Iterationen h\"angt ma{\ss}geblich von der \emph{margin} der separierbaren Daten ab. Je kleiner die margin, das hei{\ss}t der Minimalabstand zwischen den beiden Mengen, desto mehr Iterationen sind notwendig, bis der Algorithmus terminiert. Dies ist aus der Angabe der Iterationen aus ~\ref{tab:DataSetsAndBounds} ersichtlich.
+Die Anzahl der Iterationen h\"angt ma{\ss}geblich von der \emph{margin} der separierbaren Daten ab. Je kleiner die margin, das hei{\ss}t der Minimalabstand zwischen den beiden Mengen, desto mehr Iterationen sind notwendig, bis der Algorithmus terminiert. Dies ist aus der Angabe der Iterationen aus ~\ref{tab:DataSetsAndBounds} ersichtlich. Weiters ist zu sehen, dass nur der online Percetron-Trainingsalgorithmus seine Iterationszahl \"andert, die Werte f\"ur den batch Percetron-Trainingsalgorithmus bleiben konstant.
 
+Bei gr\"o{\ss}eren Datens\"atzen und extrem geringer margin ist ein deutlicher Sprung in der notwendigen Anzahl der Iterationen zu sehen. 
 
-\section{Welchen Einflu{\ss} hat die Schrittweite}
+\section{Welchen Einflu{\ss} hat die Schrittweite $\gamma$}
 
-Der Einflu{\ss} der Schrittweite h\"angt sowohl von den Eingangsdaten als auch vom gew\"ahlten Algorithmus ab.
-Es ist zu beobachten, da{\ss} der batch-Algorithmus keine gro{\ss}en Abweichungen zeigt, egal welches $\gamma$ gew\"ahlt wird. Beim online-Verfahren ist der Einflu{\ss} gr\"o{\ss}er, das hei{\ss}t die Varianz in den ermittelten Iterationen ist h\"oher, aber auch hier ist kein eindeutiger Bereich \"uber alle Simulationen auszumachen, wo ein gegebenes $\gamma$ die Iterationen des Algorithmus wesentlich reduziert. Zu sehen ist die Verteilung der Iterationen \"uber ein $\gamma$ von 0.1 bis 4 f\"ur die jeweiligen unterschiedlichen Datens\"atze in Tabelle ~\ref{tab:GammaToIterations}.
+Der Einflu{\ss} der Schrittweite $\gamma$ hat keinerlei Einflu{\ss} auf die Anzahl der notwendigen Iterationen sowohl der online als auch der batch Variante des Percetron-Trainingsalgorithmus. Die konstante Verteilung der Iterationen \"uber ein $\gamma$ von 0.1 bis 4 f\"ur die jeweiligen unterschiedlichen Datens\"atze in Tabelle ~\ref{tab:GammaToIterations} sowohl f\"ur online als auch batch Variante des Percetron-Trainingsalgorithmus zu sehen.
 
 \begin{table}[h]
 \begin{tabular}{| c | c |}
@@ -74,7 +73,9 @@ Es ist zu beobachten, da{\ss} der batch-Algorithmus keine gro{\ss}en Abweichunge
 
 \section{Daten und Entscheidungsgrenzen im $\mathbb{R}^2$}
 
-Die ermittelten Entscheidungsgrenzen des batch-learning sowie des online-learning Algorithmus sind f\"ur die einzelnen Datens\"atze und ein gegebenes $\gamma$ von 1 in Tabelle ~\ref{tab:DataSetsAndBounds} zu sehen.
+Die ermittelten Entscheidungsgrenzen des batch-learning sowie des online-learning Algorithmus sind f\"ur die einzelnen Datens\"atze und ein gegebenes $\gamma=1$ in Tabelle ~\ref{tab:DataSetsAndBounds} zu sehen.
+
+Es ist zu sehen, da{\ss} meistens wesentlich bessere Entscheidungsgrenzen gefunden werden k\"onnten, welche quasi normal auf die margin stehen w\"urden und somit besser noch unbekannte Samples einer korrekten Klasse zuweisen w\"urden.
 
 \begin{table}[h]
 \begin{tabular}{| c | c |}
@@ -82,17 +83,17 @@ Die ermittelten Entscheidungsgrenzen des batch-learning sowie des online-learnin
  & \\
 \includegraphics[width=0.4\textwidth]{./images/DataSetAndDecisionBoundary_110.jpg} & \includegraphics[width=0.4\textwidth]{./images/DataSetAndDecisionBoundary_210.jpg} \\
  & \\
- $set_{1}$: $\mu_1=10$, $\Sigma_1=5$ & $set_{1}$: $\mu_1=10$, $\Sigma_1=4$ \\
+ $set_{1}$: $\mu_1=34$, $\Sigma_1=10$ & $set_{1}$: $\mu_1=34$, $\Sigma_1=8$ \\
  $set_{2}$: $\mu_2=2$, $\Sigma_2=2$ & $set_{2}$: $\mu_2=2$, $\Sigma_2=3$ \\
 \hline
  & \\
 \includegraphics[width=0.4\textwidth]{./images/DataSetAndDecisionBoundary_310.jpg} & \includegraphics[width=0.4\textwidth]{./images/DataSetAndDecisionBoundary_410.jpg} \\
  & \\
-$set_1$: $\mu_1=10$, $\Sigma_1=3$ & $set_1$: $\mu_1=10$, $\Sigma_1=2$ \\
+$set_1$: $\mu_1=34$, $\Sigma_1=6$ & $set_1$: $\mu_1=34$, $\Sigma_1=4$ \\
 $set_2$: $\mu_2=2$, $\Sigma_2=4$ & $set_2$: $\mu_2=2$, $\Sigma_2=5$ \\
 \hline
 \end{tabular}
-\caption{iteration distribution over gamma}
+\caption{data sets and decition boundaries}
 \label{tab:DataSetsAndBounds}
 \end{table}
 
@@ -139,13 +140,22 @@ Das ermittelte Ergebnis f\"ur $w^*$ mit normalisierten Daten aus dem $\mathbb{R}
 
 \section{Konvergenzverhalten in Abh\"angigkeit von $\gamma$}
 
-In Figur ~\ref{fig:ConvergenceOverGamma} ist zu sehen, da{\ss} die Anzahl der notwendigen Iterationen um zu einem Optimum zu gelangen mit der Gr\"o{\ss}e von $lambda$ exponentiell abnimmt bis sie bei einem Wert von $\lambda \approx 0.0001$ ein Minimum erreichen. Danach steigt die Anzahl der notwendigen Iterationen wieder an.
+In Figur ~\ref{fig:ConvergenceOverGamma} ist zu sehen, da{\ss} die Anzahl der notwendigen Iterationen um zu einem Optimum zu gelangen mit der Gr\"o{\ss}e von $gamma$ exponentiell abnimmt bis sie bei einem Wert von $\gamma^{hat}= \approx 0.0001$ ein Minimum erreichen. Danach steigt die Anzahl der notwendigen Iterationen wieder an.
+
+In Figur ~\ref{fig:ConvergenceOverGammaWDiverge} ist zu sehen, da{\ss} bei Erh\"ohung von $\gamma$ \"uber den optimalen Wert von $\gamma^{hat}= \approx 0.0001$ hinaus die Anzahl der Iterationen wieder zunimmt um anschlie{\ss}end einen etwas willk\"urlichen Verlauf anzunehmen. Auf jeden Fall ist festzustellen, dass nach dem erneuten Fallen der Iterationen kein brauchbares Resultat mehr zustande kommt. Exemplarisch wurde dies f\"ur ein $\gamma=0.0035$ durchgerechnet. Eigentlich w\"are erwartet worden, da{\ss} der Algorithmus \"uber einem gewissen $\gamma$ einfach die maximal zul\"assige Anzahl an Iterationen durchf\"uhrt und dann ohne konvergiertes Ergebnis terminiert.
 
 \begin{figure}[h]
 \centering
 \includegraphics[width=0.4\textwidth]{./images/ConvergenceOverGamma.jpg} \\
 \caption{convergence over gamma}
 \label{fig:ConvergenceOverGamma}
+\end{figure}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.4\textwidth]{./images/ConvergenceOverGamma_w_diverge.jpg} \\
+\caption{convergence over gamma beyond opmital region}
+\label{fig:ConvergenceOverGammaWDiverge}
 \end{figure}
 
 \section{Erwartungswert und Varianz von $w^*$ im Bezug zu Dimensionalität $d$ von $f(x)$}
