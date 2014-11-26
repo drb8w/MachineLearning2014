@@ -140,9 +140,9 @@ Das ermittelte Ergebnis f\"ur $w^*$ mit normalisierten Daten aus dem $\mathbb{R}
 
 \section{Konvergenzverhalten in Abh\"angigkeit von $\gamma$}
 
-In Figur ~\ref{fig:ConvergenceOverGamma} ist zu sehen, da{\ss} die Anzahl der notwendigen Iterationen um zu einem Optimum zu gelangen mit der Gr\"o{\ss}e von $gamma$ exponentiell abnimmt bis sie bei einem Wert von $\gamma^{hat}= \approx 0.0001$ ein Minimum erreichen. Danach steigt die Anzahl der notwendigen Iterationen wieder an.
+In Figur ~\ref{fig:ConvergenceOverGamma} ist zu sehen, da{\ss} die Anzahl der notwendigen Iterationen um zu einem Optimum zu gelangen mit der Gr\"o{\ss}e von $gamma$ exponentiell abnimmt bis sie bei einem Wert von $\gamma^{hat} \approx 0.0001$ ein Minimum erreichen. Danach steigt die Anzahl der notwendigen Iterationen wieder an.
 
-In Figur ~\ref{fig:ConvergenceOverGammaWDiverge} ist zu sehen, da{\ss} bei Erh\"ohung von $\gamma$ \"uber den optimalen Wert von $\gamma^{hat}= \approx 0.0001$ hinaus die Anzahl der Iterationen wieder zunimmt um anschlie{\ss}end einen etwas willk\"urlichen Verlauf anzunehmen. Auf jeden Fall ist festzustellen, dass nach dem erneuten Fallen der Iterationen kein brauchbares Resultat mehr zustande kommt. Exemplarisch wurde dies f\"ur ein $\gamma=0.0035$ durchgerechnet. Eigentlich w\"are erwartet worden, da{\ss} der Algorithmus \"uber einem gewissen $\gamma$ einfach die maximal zul\"assige Anzahl an Iterationen durchf\"uhrt und dann ohne konvergiertes Ergebnis terminiert.
+In Figur ~\ref{fig:ConvergenceOverGammaWDiverge} ist zu sehen, da{\ss} bei Erh\"ohung von $\gamma$ \"uber den optimalen Wert von $\gamma^{hat} \approx 0.0001$ hinaus die Anzahl der Iterationen wieder zunimmt um anschlie{\ss}end einen etwas willk\"urlichen Verlauf anzunehmen. Auf jeden Fall ist festzustellen, dass nach dem erneuten Fallen der Iterationen kein brauchbares Resultat mehr zustande kommt. Exemplarisch wurde dies f\"ur ein $\gamma=0.0035$ durchgerechnet. Eigentlich w\"are erwartet worden, da{\ss} der Algorithmus \"uber einem gewissen $\gamma$ einfach die maximal zul\"assige Anzahl an Iterationen durchf\"uhrt und dann ohne konvergiertes Ergebnis terminiert.
 
 \begin{figure}[h]
 \centering
@@ -158,25 +158,38 @@ In Figur ~\ref{fig:ConvergenceOverGammaWDiverge} ist zu sehen, da{\ss} bei Erh\"
 \label{fig:ConvergenceOverGammaWDiverge}
 \end{figure}
 
-\section{Erwartungswert und Varianz von $w^*$ im Bezug zu Dimensionalität $d$ von $f(x)$}
+\section{Erwartungswert und Varianz von $w^*$ im Bezug zu Dimensionalit\"at $d$ von $f(x)$}
 
-Erwartungswert und Varianz von $w^*$ im Bezug zu Dimensionalität $d$ von $f(x)$ zeigt, dass je h\"oher die Dimensionalität $d$ steigt, desto h\"oher auch die Varianz $Sigma$ der ermittelten Werte f\"ur $w^*$ f\"ur verrauschte Eingangsdaten wird. Dies ist auch klar, da höherdimensionale Koeffizienten von $w^*$ h\"ohere Frequenzen repr\"asentieren, welche durch das Verrauschen der Eingangsdaten st\"arker betroffen sind als niedrigere Frequenzen.
-Interessanterweise steigt die Varianz aller Koeffizienten von $w^*$ in Tabelle ~\ref{tab:VarianceAndDeviantion} nur bis zu einer Dimensionalit\"at des Problems von 6, danach f\"allt sie wieder. Es ist aber anzunehmen, dass dies zum Einen aufgrund von Unzul\"anglichkeiten beim generieren der Pseudoinversen zur Berechnung von $w^*$ liegt und zum Anderen von der fehlenden Betrachunng noch h\"oherer Dimensionen, wo sich globale Anstieg der Varianz sicherlich fortsetzt.
+Die Varianz von $w^*$ im Bezug zu Dimensionalit\"at $d$ von $f(x)$ zeigt, da{\ss} je h\"oher die Dimensionalit\"at $d$ steigt, umso h\"oher auch die Varianz $\Sigma$ der ermittelten Werte f\"ur $w^*$ f\"ur verrauschte Eingangsdaten wird. Dies ist auch klar, da h\"oherdimensionale Koeffizienten von $w^*$ h\"ohere Frequenzen repr\"asentieren, welche durch das Verrauschen der Eingangsdaten st\"arker betroffen sind als niedrigere Frequenzen.
+Interessanterweise steigt die Varianz aller Koeffizienten von $w^*$ in Tabelle ~\ref{tab:VarianceAndDeviantion} nur bis zu einer Dimensionalit\"at des Problems von $6$, danach f\"allt sie wieder ab. Es ist anzunehmen, dass dies zum Einen aufgrund in Unzul\"anglichkeiten beim generieren der Pseudoinversen zur Berechnung von $w^*$ liegt und zum Anderen in der Tatsache begr\"undet liegt, da{\ss} Freguenzen h\"oherer Ordnung wohl im gegebenen Problem nicht vorkommen.
+
+F\"ur den Mittelwert verh\"alt es sich \"ahnlich. Da das Problem im wesentlichen von der quadratischen Komponente abh\"angt ist diese naturgem\"a{\ss} am deutlichsten vertreten.
+H\"oherdimensionale Gewichtsanteile sind nur marginal vertreten.
 
 \begin{table}[h]
-\begin{tabular}{| c | c |}
+\begin{tabular}{| c | c|}
 \hline
- & \\
-\includegraphics[width=0.4\textwidth]{./images/VarianceWeightCoeffinientsOverDimension.png} & \includegraphics[width=0.4\textwidth]{./images/DeviationWeightCoeffinientsOverDimension.png} \\
- & \\
-variance of weight coeffinients & deviation of weight coeffinients \\
+& \\
+\includegraphics[width=0.4\textwidth]{./images/VarianceWeightCoeffinientsOverDimension_stable.png} & \includegraphics[width=0.4\textwidth]{./images/VarianceWeightCoeffinientsOverDimension.png} \\
+variance of weight coefficients & variance of weight coefficients \\
+for max. dimension $d=7$ & for max. dimension $d=9$ \\
+\hline
+\\
+\includegraphics[width=0.4\textwidth]{./images/DeviationWeightCoeffinientsOverDimension_stable.png} & \includegraphics[width=0.4\textwidth]{./images/DeviationWeightCoeffinientsOverDimension.png} \\
+deviation of weight coefficients & deviation of weight coefficients \\
+for max. dimension $d=7$ & for max. dimension $d=9$ \\
+\hline
+\\
+\includegraphics[width=0.4\textwidth]{./images/MeanWeightCoeffinientsOverDimension_stable.png} & \includegraphics[width=0.4\textwidth]{./images/MeanWeightCoeffinientsOverDimension.png} \\
+mean of weight coefficients & mean of weight coefficients \\
+for max. dimension $d=7$ & for max. dimension $d=9$ \\
 \hline
 \end{tabular}
-\caption{variance and deviantion of $w^*$ over dimension}
+\caption{variance, deviantion and mean of $w^*$ coefficient over dimension}
 \label{tab:VarianceAndDeviantion}
 \end{table}
 
-Des weiteren ist in Figur ~\ref{fig:Overfitting} festzustellen, dass f\"ur h\"oherdimensionale Komponenten f\"ur $w^*$ durch overfitting der Kurve $f(x)$ die Varianz zunimmt, zu sehen in den Schwingungen der Kurven.
+Des weiteren ist in Figur ~\ref{fig:Overfitting} festzustellen, dass f\"ur h\"oherdimensionale Gleichungen $f(x)$ basierend auf $w^*$ das overfitting der Kurve $f(x)$ zunimmt, zu sehen in den Schwingungen der Kurven.
 
 \begin{figure}[h]
 \centering

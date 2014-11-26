@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9) (preloaded format=pdflatex 2014.5.30)  26 NOV 2014 18:06
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9) (preloaded format=pdflatex 2014.5.30)  26 NOV 2014 19:50
 entering extended mode
 **template_Report.tex
 
@@ -362,70 +362,99 @@ put line 156.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-Missing character: There is no Ã in font cmbx12!
-Missing character: There is no ¤ in font cmbx12!
 
 Overfull \hbox (10.16454pt too wide) in paragraph at lines 161--161
 []\OT1/cmr/bx/n/14.4 Erwartungswert und Var-i-anz von $\OML/cmm/m/it/14.4 w[]$ 
 \OT1/cmr/bx/n/14.4 im Bezug
  []
 
-Missing character: There is no Ã in font cmr10!
-Missing character: There is no ¤ in font cmr10!
-Missing character: There is no Ã in font cmr10!
-Missing character: There is no ¤ in font cmr10!
-Missing character: There is no Ã in font cmr10!
-Missing character: There is no ¶ in font cmr10!
 [6 <C:/Users/braendlc/Documents/TU_Wien/1_Semester/MachinellesLernen/UEB/GitHub
 /MachineLearning2014/Aufgabe01/Report/images/ConvergenceOverGamma.jpg>]
-<./images/VarianceWeightCoeffinientsOverDimension.png, id=51, 612.2875pt x 461.
+<./images/VarianceWeightCoeffinientsOverDimension_stable.png, id=51, 612.2875pt
+ x 461.725pt>
+File: ./images/VarianceWeightCoeffinientsOverDimension_stable.png Graphic file 
+(type png)
+
+<use ./images/VarianceWeightCoeffinientsOverDimension_stable.png>
+Package pdftex.def Info: ./images/VarianceWeightCoeffinientsOverDimension_stabl
+e.png used on input line 173.
+(pdftex.def)             Requested size: 137.9979pt x 104.05977pt.
+
+<./images/VarianceWeightCoeffinientsOverDimension.png, id=52, 612.2875pt x 461.
 725pt>
 File: ./images/VarianceWeightCoeffinientsOverDimension.png Graphic file (type p
 ng)
  <use ./images/VarianceWeightCoeffinientsOverDimension.png>
 Package pdftex.def Info: ./images/VarianceWeightCoeffinientsOverDimension.png u
-sed on input line 170.
+sed on input line 173.
 (pdftex.def)             Requested size: 137.9979pt x 104.05977pt.
 
-<./images/DeviationWeightCoeffinientsOverDimension.png, id=52, 612.2875pt x 461
+<./images/DeviationWeightCoeffinientsOverDimension_stable.png, id=53, 612.2875p
+t x 461.725pt>
+File: ./images/DeviationWeightCoeffinientsOverDimension_stable.png Graphic file
+ (type png)
+
+<use ./images/DeviationWeightCoeffinientsOverDimension_stable.png>
+Package pdftex.def Info: ./images/DeviationWeightCoeffinientsOverDimension_stab
+le.png used on input line 178.
+(pdftex.def)             Requested size: 137.9979pt x 104.05977pt.
+
+<./images/DeviationWeightCoeffinientsOverDimension.png, id=54, 612.2875pt x 461
 .725pt>
 File: ./images/DeviationWeightCoeffinientsOverDimension.png Graphic file (type 
 png)
  <use ./images/DeviationWeightCoeffinientsOverDimension.png>
 Package pdftex.def Info: ./images/DeviationWeightCoeffinientsOverDimension.png 
-used on input line 170.
+used on input line 178.
 (pdftex.def)             Requested size: 137.9979pt x 104.05977pt.
 
-<./images/f_x_w_star_overDimensions_stable.png, id=53, 612.2875pt x 461.725pt>
+<./images/MeanWeightCoeffinientsOverDimension_stable.png, id=55, 612.2875pt x 4
+61.725pt>
+File: ./images/MeanWeightCoeffinientsOverDimension_stable.png Graphic file (typ
+e png)
+ <use ./images/MeanWeightCoeffinientsOverDimension_stable.png>
+Package pdftex.def Info: ./images/MeanWeightCoeffinientsOverDimension_stable.pn
+g used on input line 183.
+(pdftex.def)             Requested size: 137.9979pt x 104.05977pt.
+
+<./images/MeanWeightCoeffinientsOverDimension.png, id=56, 612.2875pt x 461.725p
+t>
+File: ./images/MeanWeightCoeffinientsOverDimension.png Graphic file (type png)
+ <use ./images/MeanWeightCoeffinientsOverDimension.png>
+Package pdftex.def Info: ./images/MeanWeightCoeffinientsOverDimension.png used 
+on input line 183.
+(pdftex.def)             Requested size: 137.9979pt x 104.05977pt.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
+<./images/f_x_w_star_overDimensions_stable.png, id=57, 612.2875pt x 461.725pt>
 File: ./images/f_x_w_star_overDimensions_stable.png Graphic file (type png)
 
 <use ./images/f_x_w_star_overDimensions_stable.png>
 Package pdftex.def Info: ./images/f_x_w_star_overDimensions_stable.png used on 
-input line 183.
+input line 196.
 (pdftex.def)             Requested size: 137.9979pt x 104.05977pt.
 
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-
-Overfull \hbox (8.39397pt too wide) in paragraph at lines 188--188
+Overfull \hbox (8.39397pt too wide) in paragraph at lines 201--201
 []\OT1/cmr/bx/n/14.4 Mittlere quadratis-che Ab-we-ichung von $\OML/cmm/m/it/14.
 4 f[]\OT1/cmr/m/n/14.4 (\OML/cmm/m/it/14.4 x[]\OT1/cmr/m/n/14.4 )$ 
  []
 
-<./images/MeanErrorOverDimensions.png, id=54, 612.2875pt x 461.725pt>
+<./images/MeanErrorOverDimensions.png, id=58, 612.2875pt x 461.725pt>
 File: ./images/MeanErrorOverDimensions.png Graphic file (type png)
 
 <use ./images/MeanErrorOverDimensions.png>
 Package pdftex.def Info: ./images/MeanErrorOverDimensions.png used on input lin
-e 194.
+e 207.
 (pdftex.def)             Requested size: 137.9979pt x 104.05977pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 
-Overfull \hbox (5.48619pt too wide) in paragraph at lines 199--199
+Overfull \hbox (5.48619pt too wide) in paragraph at lines 212--212
 []\OT1/cmr/bx/n/14.4 Gewichtsvektor $\OML/cmm/m/it/14.4 w[]$ \OT1/cmr/bx/n/14.4
  bei ungestorter Train-ings-
  []
@@ -433,44 +462,42 @@ Overfull \hbox (5.48619pt too wide) in paragraph at lines 199--199
 [7 <C:/Users/braendlc/Documents/TU_Wien/1_Semester/MachinellesLernen/UEB/GitHub
 /MachineLearning2014/Aufgabe01/Report/images/ConvergenceOverGamma_w_diverge.jpg
 > <C:/Users/braendlc/Documents/TU_Wien/1_Semester/MachinellesLernen/UEB/GitHub/
-MachineLearning2014/Aufgabe01/Report/images/VarianceWeightCoeffinientsOverDimen
-sion.png (PNG copy)> <C:/Users/braendlc/Documents/TU_Wien/1_Semester/Machinelle
-sLernen/UEB/GitHub/MachineLearning2014/Aufgabe01/Report/images/DeviationWeightC
-oeffinientsOverDimension.png (PNG copy)>]
-<./images/f_x_w_star_overDimensions.png, id=59, 612.2875pt x 461.725pt>
+MachineLearning2014/Aufgabe01/Report/images/f_x_w_star_overDimensions_stable.pn
+g (PNG copy)>]
+<./images/f_x_w_star_overDimensions.png, id=63, 612.2875pt x 461.725pt>
 File: ./images/f_x_w_star_overDimensions.png Graphic file (type png)
 
 <use ./images/f_x_w_star_overDimensions.png>
 Package pdftex.def Info: ./images/f_x_w_star_overDimensions.png used on input l
-ine 207.
+ine 220.
 (pdftex.def)             Requested size: 137.9979pt x 104.05977pt.
 
-<./images/f_x_w_star_not_preturbed_overDimensions.png, id=60, 612.2875pt x 461.
+<./images/f_x_w_star_not_preturbed_overDimensions.png, id=64, 612.2875pt x 461.
 725pt>
 File: ./images/f_x_w_star_not_preturbed_overDimensions.png Graphic file (type p
 ng)
  <use ./images/f_x_w_star_not_preturbed_overDimensions.png>
 Package pdftex.def Info: ./images/f_x_w_star_not_preturbed_overDimensions.png u
-sed on input line 207.
+sed on input line 220.
 (pdftex.def)             Requested size: 137.9979pt x 104.05977pt.
 File: ./images/f_x_w_star_overDimensions_stable.png Graphic file (type png)
 
 <use ./images/f_x_w_star_overDimensions_stable.png>
 Package pdftex.def Info: ./images/f_x_w_star_overDimensions_stable.png used on 
-input line 211.
+input line 224.
 (pdftex.def)             Requested size: 137.9979pt x 104.05977pt.
 
-<./images/f_x_w_star_not_preturbed_overDimensions_stable.png, id=61, 612.2875pt
+<./images/f_x_w_star_not_preturbed_overDimensions_stable.png, id=65, 612.2875pt
  x 461.725pt>
 File: ./images/f_x_w_star_not_preturbed_overDimensions_stable.png Graphic file 
 (type png)
 
 <use ./images/f_x_w_star_not_preturbed_overDimensions_stable.png>
 Package pdftex.def Info: ./images/f_x_w_star_not_preturbed_overDimensions_stabl
-e.png used on input line 211.
+e.png used on input line 224.
 (pdftex.def)             Requested size: 137.9979pt x 104.05977pt.
 
-Overfull \hbox (6.41817pt too wide) in paragraph at lines 204--216
+Overfull \hbox (6.41817pt too wide) in paragraph at lines 217--229
 [][] 
  []
 
@@ -478,26 +505,38 @@ Overfull \hbox (6.41817pt too wide) in paragraph at lines 204--216
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 [8 <C:/Users/braendlc/Documents/TU_Wien/1_Semester/MachinellesLernen/UEB/GitHub
-/MachineLearning2014/Aufgabe01/Report/images/f_x_w_star_overDimensions_stable.p
-ng (PNG copy)> <C:/Users/braendlc/Documents/TU_Wien/1_Semester/MachinellesLerne
-n/UEB/GitHub/MachineLearning2014/Aufgabe01/Report/images/MeanErrorOverDimension
-s.png (PNG copy)>] [9 <C:/Users/braendlc/Documents/TU_Wien/1_Semester/Machinell
-esLernen/UEB/GitHub/MachineLearning2014/Aufgabe01/Report/images/f_x_w_star_over
-Dimensions.png (PNG copy)> <C:/Users/braendlc/Documents/TU_Wien/1_Semester/Mach
-inellesLernen/UEB/GitHub/MachineLearning2014/Aufgabe01/Report/images/f_x_w_star
-_not_preturbed_overDimensions.png (PNG copy)> <C:/Users/braendlc/Documents/TU_W
-ien/1_Semester/MachinellesLernen/UEB/GitHub/MachineLearning2014/Aufgabe01/Repor
-t/images/f_x_w_star_not_preturbed_overDimensions_stable.png (PNG copy)>]
+/MachineLearning2014/Aufgabe01/Report/images/MeanErrorOverDimensions.png (PNG c
+opy)>] [9 <C:/Users/braendlc/Documents/TU_Wien/1_Semester/MachinellesLernen/UEB
+/GitHub/MachineLearning2014/Aufgabe01/Report/images/VarianceWeightCoeffinientsO
+verDimension_stable.png (PNG copy)> <C:/Users/braendlc/Documents/TU_Wien/1_Seme
+ster/MachinellesLernen/UEB/GitHub/MachineLearning2014/Aufgabe01/Report/images/V
+arianceWeightCoeffinientsOverDimension.png (PNG copy)> <C:/Users/braendlc/Docum
+ents/TU_Wien/1_Semester/MachinellesLernen/UEB/GitHub/MachineLearning2014/Aufgab
+e01/Report/images/DeviationWeightCoeffinientsOverDimension_stable.png (PNG copy
+)> <C:/Users/braendlc/Documents/TU_Wien/1_Semester/MachinellesLernen/UEB/GitHub
+/MachineLearning2014/Aufgabe01/Report/images/DeviationWeightCoeffinientsOverDim
+ension.png (PNG copy)> <C:/Users/braendlc/Documents/TU_Wien/1_Semester/Machinel
+lesLernen/UEB/GitHub/MachineLearning2014/Aufgabe01/Report/images/MeanWeightCoef
+finientsOverDimension_stable.png (PNG copy)> <C:/Users/braendlc/Documents/TU_Wi
+en/1_Semester/MachinellesLernen/UEB/GitHub/MachineLearning2014/Aufgabe01/Report
+/images/MeanWeightCoeffinientsOverDimension.png (PNG copy)>] [10 <C:/Users/brae
+ndlc/Documents/TU_Wien/1_Semester/MachinellesLernen/UEB/GitHub/MachineLearning2
+014/Aufgabe01/Report/images/f_x_w_star_overDimensions.png (PNG copy)> <C:/Users
+/braendlc/Documents/TU_Wien/1_Semester/MachinellesLernen/UEB/GitHub/MachineLear
+ning2014/Aufgabe01/Report/images/f_x_w_star_not_preturbed_overDimensions.png (P
+NG copy)> <C:/Users/braendlc/Documents/TU_Wien/1_Semester/MachinellesLernen/UEB
+/GitHub/MachineLearning2014/Aufgabe01/Report/images/f_x_w_star_not_preturbed_ov
+erDimensions_stable.png (PNG copy)>]
 (C:\Users\braendlc\Documents\TU_Wien\1_Semester\MachinellesLernen\UEB\GitHub\Ma
 chineLearning2014\Aufgabe01\Report\template_Report.aux) ) 
 Here is how much of TeX's memory you used:
- 2264 strings out of 493921
- 31808 string characters out of 3144867
- 81991 words of memory out of 3000000
- 5532 multiletter control sequences out of 15000+200000
+ 2284 strings out of 493921
+ 32958 string characters out of 3144867
+ 82992 words of memory out of 3000000
+ 5548 multiletter control sequences out of 15000+200000
  13394 words of font info for 52 fonts, out of 3000000 for 9000
  841 hyphenation exceptions out of 8191
- 27i,11n,24p,732b,282s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 27i,11n,24p,731b,282s stack positions out of 5000i,500n,10000p,200000b,50000s
 <C:/Program Files (x86
 )/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Program Files (x86)/
 MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Program Files (x86)/Mi
@@ -512,9 +551,9 @@ e1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1
 blic/amsfonts/cm/cmsy7.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/publi
 c/amsfonts/cm/cmti10.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/
 amsfonts/symbols/msbm10.pfb>
-Output written on template_Report.pdf (10 pages, 1000746 bytes).
+Output written on template_Report.pdf (11 pages, 1039788 bytes).
 PDF statistics:
- 109 PDF objects out of 1000 (max. 8388607)
+ 116 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 111 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 131 words of extra memory for PDF output out of 10000 (max. 10000000)
 
