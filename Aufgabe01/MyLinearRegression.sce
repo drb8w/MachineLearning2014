@@ -204,6 +204,7 @@ function [w_t, its] = onlineLMS(A,t,lambda, E_threshold, maxIts)
     E_tm1 = intmax;
     E_t = intmax/2;
     its =0;
+    lambda_member = lambda / n; // because every member shifts the resulting weight, so big lambda is a problem
     // Matlab
     //while abs(E_t - E_tm1) > E_threshold && its < maxIts
     //while abs(E_tm1/E_t) > treshold_E_ratio && its < maxIts
@@ -218,7 +219,8 @@ function [w_t, its] = onlineLMS(A,t,lambda, E_threshold, maxIts)
             // calculate cost
             E_t = E_t + (t_i-o_i)^2;
             // update w
-            w_t = w_t + lambda*(t_i-o_i)*x_i;
+            //w_t = w_t + lambda*(t_i-o_i)*x_i;
+            w_t = w_t + lambda_member*(t_i-o_i)*x_i;
         end
         its = its + 1;
     end
@@ -230,7 +232,7 @@ endfunction
     x_start = 0;
     x_end = 5;
     x_interval = 0.1;
-    G = 10;
+    G = 5;
     [x,y]=generateXY(x_start,x_end,x_interval,G);
 
     mu = 0;
@@ -239,7 +241,9 @@ endfunction
     y_t = t';
     dimension_start = 3;
     dimension_end = 9;
-    lambda = 0.001;
+    //dimension_end = 8;
+    // lambda = 0.001; // online LMS does not converge
+    lambda = 1*10^-5;
     
     //plotData(x,y,x_t,t,y_star_3,y_star_4);
 
@@ -250,10 +254,11 @@ endfunction
      plotDataY_star(x,Y_star, x_t, y_t, dimension_start, no_figure_Y_star);
     
     // 1.2.2.I - determine w_online_3    
-    lambda = 0.001;
     A_3 = createA(x_t,3);
-    E_threshold = 0.01;
-    maxIts = 200;
+    //E_threshold = 0.01; // not approriate for online LMS
+    E_threshold = 0.0001;
+    //maxIts = 200; // not approriate for online LMS
+    maxIts = 1*10^10;
     
     [w_online_3, its_online_3]= onlineLMS(A_3, y_t ,lambda, E_threshold, maxIts);
     
@@ -271,7 +276,8 @@ endfunction
     plotLinRegResults(x, y, t, y_online_3, y_star_3, 3, no_figureLinReg);
     
     // 1.2.2.III - test influence of lambda on convergence of online LMS
-    Lambdas = 0.001:0.001:10;
+    //Lambdas = 0.001:0.001:10; // not approriate for online LMS
+    Lambdas = 1*10^-5:1*10^-5:1*10^-3;
     [m_l,n_l]=size(Lambdas);
     
     //treshold_E_ratio = 1.01;
@@ -286,14 +292,33 @@ endfunction
     // display iterations vs. lambda
     no_lambdaFigure = 100;
     plotIterationsVsLambda(Its_online_3, Lambdas, no_lambdaFigure);
+
+    // diverge of w means that maximum iterations don't bring sufficient good result
+    Lambdas_div = 1*10^-4:1*10^-4:1*10^-2;
+    [m_l_div,n_l_div]=size(Lambdas_div);
+    Its_online_3_div = zeros(1,n_l_div);
+    W_online_3_div = zeros(4,n_l_div);
+    for index_lambda=1:n_l_div
+        [w_online_3, its_online_3]= onlineLMS(A_3, y_t ,Lambdas_div(index_lambda), E_threshold, maxIts);
+        Its_online_3_div(1,index_lambda) = its_online_3;
+        W_online_3_div(:,index_lambda) = w_online_3;
+    end
+
+    // display iterations vs. lambda
+    no_lambdaDivergeFigure = 150;
+    plotIterationsVsLambda(Its_online_3_div, Lambdas_div, no_lambdaDivergeFigure);
+    
+    // test for empirical lambda of 0.0035
+    lambda_hat = 0.0035;
+    [w_online_3_hat, its_online_3_hat]= onlineLMS(A_3, y_t ,lambda_hat, E_threshold, maxIts);
+    y_online_3_hat = createPolynomValues(x,w_online_3_hat);    
+    
+    // show wrongness of result
+    no_figureLinReg_WrongOnline = 170;
+    plotLinearRegressionResults(x, y, t, y_online_3_hat, y_star_3, 3, no_figureLinReg_WrongOnline);
     
     // 1.2.3.I - determine mu and Sigma of w^* coefficients
-    // lambda = 0.001;
-    // dimension_start = 3;
-    // dimension_end = 9;
     dimension_delta = dimension_end - dimension_start + 1;
-    mu = 0;
-    Sigma = 0.7;
     no_trainingsSets = 2000;
     
     WW_star = zeros(dimension_end+1,dimension_delta,no_trainingsSets);

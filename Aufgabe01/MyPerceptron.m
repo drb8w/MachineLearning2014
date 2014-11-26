@@ -4,9 +4,11 @@ function MyPerceptron()
     n = 100;
     d = 2;
     
-    Mu_1 = [14,14,14,14]; 
-    Sigma_1 = [5,4,3,2];
-
+    %Mu_1 = [14,14,14,14]; 
+    %Sigma_1 = [5,4,3,2];
+    Mu_1 = [34,34,34,34]; 
+    Sigma_1 = [10,8,6,4];    
+    
     Mu_2 = [2, 2, 2, 2]; 
     %Sigma_2 = [2,3,4,5];
     %Sigma_2 = [3,3,3,3];
@@ -31,6 +33,8 @@ function MyPerceptron()
         maxIts = 10000;
 
         Gamma = 0.1:0.1:4;
+        %Gamma = 0.001:0.001:0.04;
+        %Gamma = 1:1;
         [Gamma_m,Gamma_n] = size(Gamma);
         Iterations_online = zeros(Gamma_n,1);
         Iterations_batch = zeros(Gamma_n,1);
