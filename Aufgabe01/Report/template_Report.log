@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9) (preloaded format=pdflatex 2014.5.30)  26 NOV 2014 19:50
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9) (preloaded format=pdflatex 2014.5.30)  26 NOV 2014 21:08
 entering extended mode
 **template_Report.tex
 
@@ -192,6 +192,7 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) [1
 
 {C:/Users/braendlc/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}]
+Chapter 1.
 <./images/DataSet_100.jpg, id=7, 1204.5pt x 903.375pt>
 File: ./images/DataSet_100.jpg Graphic file (type jpg)
 
@@ -219,324 +220,329 @@ File: ./images/DataSet_400.jpg Graphic file (type jpg)
 <use ./images/DataSet_400.jpg>
 Package pdftex.def Info: ./images/DataSet_400.jpg used on input line 35.
 (pdftex.def)             Requested size: 137.9979pt x 103.49309pt.
- [1 <C:/Users/braendlc/Documents/TU_Wien/1_Semester/MachinellesLernen/UEB/GitHu
-b/MachineLearning2014/Aufgabe01/Report/images/DataSet_100.jpg> <C:/Users/braend
-lc/Documents/TU_Wien/1_Semester/MachinellesLernen/UEB/GitHub/MachineLearning201
-4/Aufgabe01/Report/images/DataSet_200.jpg> <C:/Users/braendlc/Documents/TU_Wien
-/1_Semester/MachinellesLernen/UEB/GitHub/MachineLearning2014/Aufgabe01/Report/i
-mages/DataSet_300.jpg> <C:/Users/braendlc/Documents/TU_Wien/1_Semester/Machinel
-lesLernen/UEB/GitHub/MachineLearning2014/Aufgabe01/Report/images/DataSet_400.jp
-g>]
-Chapter 1.
-<./images/GammaToIterations_0150.jpg, id=18, 1204.5pt x 903.375pt>
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+<./images/meanIterOnlinePercOverDataSets.jpg, id=11, 1204.5pt x 903.375pt>
+File: ./images/meanIterOnlinePercOverDataSets.jpg Graphic file (type jpg)
+
+<use ./images/meanIterOnlinePercOverDataSets.jpg>
+Package pdftex.def Info: ./images/meanIterOnlinePercOverDataSets.jpg used on in
+put line 57.
+(pdftex.def)             Requested size: 137.9979pt x 103.49309pt.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[1
+
+] <./images/GammaToIterations_0150.jpg, id=20, 1204.5pt x 903.375pt>
 File: ./images/GammaToIterations_0150.jpg Graphic file (type jpg)
 
 <use ./images/GammaToIterations_0150.jpg>
 Package pdftex.def Info: ./images/GammaToIterations_0150.jpg used on input line
- 61.
+ 70.
 (pdftex.def)             Requested size: 137.9979pt x 103.49309pt.
 
-<./images/GammaToIterations_0250.jpg, id=19, 1204.5pt x 903.375pt>
+<./images/GammaToIterations_0250.jpg, id=21, 1204.5pt x 903.375pt>
 File: ./images/GammaToIterations_0250.jpg Graphic file (type jpg)
 
 <use ./images/GammaToIterations_0250.jpg>
 Package pdftex.def Info: ./images/GammaToIterations_0250.jpg used on input line
- 61.
+ 70.
 (pdftex.def)             Requested size: 137.9979pt x 103.49309pt.
 
-<./images/GammaToIterations_0350.jpg, id=20, 1204.5pt x 903.375pt>
+<./images/GammaToIterations_0350.jpg, id=22, 1204.5pt x 903.375pt>
 File: ./images/GammaToIterations_0350.jpg Graphic file (type jpg)
 
 <use ./images/GammaToIterations_0350.jpg>
 Package pdftex.def Info: ./images/GammaToIterations_0350.jpg used on input line
- 65.
+ 74.
 (pdftex.def)             Requested size: 137.9979pt x 103.49309pt.
 
-<./images/GammaToIterations_0450.jpg, id=21, 1204.5pt x 903.375pt>
+<./images/GammaToIterations_0450.jpg, id=23, 1204.5pt x 903.375pt>
 File: ./images/GammaToIterations_0450.jpg Graphic file (type jpg)
 
 <use ./images/GammaToIterations_0450.jpg>
 Package pdftex.def Info: ./images/GammaToIterations_0450.jpg used on input line
- 65.
+ 74.
 (pdftex.def)             Requested size: 137.9979pt x 103.49309pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 
-Overfull \hbox (7.61165pt too wide) in paragraph at lines 76--77
+Overfull \hbox (7.61165pt too wide) in paragraph at lines 85--86
 \OT1/cmr/m/n/10 Die er-mit-tel-ten Entschei-dungs-gren-zen des batch-learning s
 owie des online-learning
  []
 
-<./images/DataSetAndDecisionBoundary_110.jpg, id=22, 1204.5pt x 903.375pt>
+<./images/DataSetAndDecisionBoundary_110.jpg, id=24, 1204.5pt x 903.375pt>
 File: ./images/DataSetAndDecisionBoundary_110.jpg Graphic file (type jpg)
 
 <use ./images/DataSetAndDecisionBoundary_110.jpg>
 Package pdftex.def Info: ./images/DataSetAndDecisionBoundary_110.jpg used on in
-put line 84.
+put line 93.
 (pdftex.def)             Requested size: 137.9979pt x 103.49309pt.
 
-<./images/DataSetAndDecisionBoundary_210.jpg, id=23, 1204.5pt x 903.375pt>
+<./images/DataSetAndDecisionBoundary_210.jpg, id=25, 1204.5pt x 903.375pt>
 File: ./images/DataSetAndDecisionBoundary_210.jpg Graphic file (type jpg)
 
 <use ./images/DataSetAndDecisionBoundary_210.jpg>
 Package pdftex.def Info: ./images/DataSetAndDecisionBoundary_210.jpg used on in
-put line 84.
+put line 93.
 (pdftex.def)             Requested size: 137.9979pt x 103.49309pt.
 
-<./images/DataSetAndDecisionBoundary_310.jpg, id=24, 1204.5pt x 903.375pt>
+<./images/DataSetAndDecisionBoundary_310.jpg, id=26, 1204.5pt x 903.375pt>
 File: ./images/DataSetAndDecisionBoundary_310.jpg Graphic file (type jpg)
 
 <use ./images/DataSetAndDecisionBoundary_310.jpg>
 Package pdftex.def Info: ./images/DataSetAndDecisionBoundary_310.jpg used on in
-put line 90.
+put line 99.
 (pdftex.def)             Requested size: 137.9979pt x 103.49309pt.
 
-<./images/DataSetAndDecisionBoundary_410.jpg, id=25, 1204.5pt x 903.375pt>
+<./images/DataSetAndDecisionBoundary_410.jpg, id=27, 1204.5pt x 903.375pt>
 File: ./images/DataSetAndDecisionBoundary_410.jpg Graphic file (type jpg)
 
 <use ./images/DataSetAndDecisionBoundary_410.jpg>
 Package pdftex.def Info: ./images/DataSetAndDecisionBoundary_410.jpg used on in
-put line 90.
+put line 99.
 (pdftex.def)             Requested size: 137.9979pt x 103.49309pt.
- [2
 
-]
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 
-Overfull \hbox (12.64464pt too wide) in paragraph at lines 100--100
+Overfull \hbox (12.64464pt too wide) in paragraph at lines 109--109
 []\OT1/cmr/bx/n/14.4 Wie ist das Ver-hal-ten bei nicht lin-ear separier-
  []
 
-[3 <C:/Users/braendlc/Documents/TU_Wien/1_Semester/MachinellesLernen/UEB/GitHub
-/MachineLearning2014/Aufgabe01/Report/images/GammaToIterations_0150.jpg> <C:/Us
-ers/braendlc/Documents/TU_Wien/1_Semester/MachinellesLernen/UEB/GitHub/MachineL
-earning2014/Aufgabe01/Report/images/GammaToIterations_0250.jpg> <C:/Users/braen
-dlc/Documents/TU_Wien/1_Semester/MachinellesLernen/UEB/GitHub/MachineLearning20
-14/Aufgabe01/Report/images/GammaToIterations_0350.jpg> <C:/Users/braendlc/Docum
+[2 <C:/Users/braendlc/Documents/TU_Wien/1_Semester/MachinellesLernen/UEB/GitHub
+/MachineLearning2014/Aufgabe01/Report/images/DataSet_100.jpg> <C:/Users/braendl
+c/Documents/TU_Wien/1_Semester/MachinellesLernen/UEB/GitHub/MachineLearning2014
+/Aufgabe01/Report/images/DataSet_200.jpg> <C:/Users/braendlc/Documents/TU_Wien/
+1_Semester/MachinellesLernen/UEB/GitHub/MachineLearning2014/Aufgabe01/Report/im
+ages/DataSet_300.jpg> <C:/Users/braendlc/Documents/TU_Wien/1_Semester/Machinell
+esLernen/UEB/GitHub/MachineLearning2014/Aufgabe01/Report/images/DataSet_400.jpg
+>] [3 <C:/Users/braendlc/Documents/TU_Wien/1_Semester/MachinellesLernen/UEB/Git
+Hub/MachineLearning2014/Aufgabe01/Report/images/meanIterOnlinePercOverDataSets.
+jpg>] [4 <C:/Users/braendlc/Documents/TU_Wien/1_Semester/MachinellesLernen/UEB/
+GitHub/MachineLearning2014/Aufgabe01/Report/images/GammaToIterations_0150.jpg> 
+<C:/Users/braendlc/Documents/TU_Wien/1_Semester/MachinellesLernen/UEB/GitHub/Ma
+chineLearning2014/Aufgabe01/Report/images/GammaToIterations_0250.jpg> <C:/Users
+/braendlc/Documents/TU_Wien/1_Semester/MachinellesLernen/UEB/GitHub/MachineLear
+ning2014/Aufgabe01/Report/images/GammaToIterations_0350.jpg> <C:/Users/braendlc
+/Documents/TU_Wien/1_Semester/MachinellesLernen/UEB/GitHub/MachineLearning2014/
+Aufgabe01/Report/images/GammaToIterations_0450.jpg>] [5 <C:/Users/braendlc/Docu
+ments/TU_Wien/1_Semester/MachinellesLernen/UEB/GitHub/MachineLearning2014/Aufga
+be01/Report/images/DataSetAndDecisionBoundary_110.jpg> <C:/Users/braendlc/Docum
 ents/TU_Wien/1_Semester/MachinellesLernen/UEB/GitHub/MachineLearning2014/Aufgab
-e01/Report/images/GammaToIterations_0450.jpg>] [4 <C:/Users/braendlc/Documents/
-TU_Wien/1_Semester/MachinellesLernen/UEB/GitHub/MachineLearning2014/Aufgabe01/R
-eport/images/DataSetAndDecisionBoundary_110.jpg> <C:/Users/braendlc/Documents/T
-U_Wien/1_Semester/MachinellesLernen/UEB/GitHub/MachineLearning2014/Aufgabe01/Re
-port/images/DataSetAndDecisionBoundary_210.jpg> <C:/Users/braendlc/Documents/TU
-_Wien/1_Semester/MachinellesLernen/UEB/GitHub/MachineLearning2014/Aufgabe01/Rep
-ort/images/DataSetAndDecisionBoundary_310.jpg> <C:/Users/braendlc/Documents/TU_
-Wien/1_Semester/MachinellesLernen/UEB/GitHub/MachineLearning2014/Aufgabe01/Repo
-rt/images/DataSetAndDecisionBoundary_410.jpg>]
+e01/Report/images/DataSetAndDecisionBoundary_210.jpg> <C:/Users/braendlc/Docume
+nts/TU_Wien/1_Semester/MachinellesLernen/UEB/GitHub/MachineLearning2014/Aufgabe
+01/Report/images/DataSetAndDecisionBoundary_310.jpg> <C:/Users/braendlc/Documen
+ts/TU_Wien/1_Semester/MachinellesLernen/UEB/GitHub/MachineLearning2014/Aufgabe0
+1/Report/images/DataSetAndDecisionBoundary_410.jpg>]
 Chapter 2.
-
-Overfull \hbox (11.21121pt too wide) in paragraph at lines 116--116
-[]\OT1/cmr/bx/n/14.4 Gewichtsvektor mit-tels Gra-di-en-ten-ab-stieg bei
- []
-
-<./images/OnlineVsBatchLMS.png, id=38, 612.2875pt x 461.725pt>
+<./images/OnlineVsBatchLMS.png, id=42, 612.2875pt x 461.725pt>
 File: ./images/OnlineVsBatchLMS.png Graphic file (type png)
 
 <use ./images/OnlineVsBatchLMS.png>
-Package pdftex.def Info: ./images/OnlineVsBatchLMS.png used on input line 123.
+Package pdftex.def Info: ./images/OnlineVsBatchLMS.png used on input line 132.
 (pdftex.def)             Requested size: 137.9979pt x 104.05977pt.
- [5
+ [6
 
  <C:/Users/braendlc/Documents/TU_Wien/1_Semester/MachinellesLernen/UEB/GitHub/M
 achineLearning2014/Aufgabe01/Report/images/OnlineVsBatchLMS.png (PNG copy)>]
-<./images/ConvergenceOverGamma.jpg, id=45, 612.2875pt x 461.725pt>
+<./images/ConvergenceOverGamma.jpg, id=50, 612.2875pt x 461.725pt>
 File: ./images/ConvergenceOverGamma.jpg Graphic file (type jpg)
 
 <use ./images/ConvergenceOverGamma.jpg>
 Package pdftex.def Info: ./images/ConvergenceOverGamma.jpg used on input line 1
-49.
+58.
 (pdftex.def)             Requested size: 137.9979pt x 104.05977pt.
 
-<./images/ConvergenceOverGamma_w_diverge.jpg, id=46, 612.2875pt x 461.725pt>
+<./images/ConvergenceOverGamma_w_diverge.jpg, id=51, 612.2875pt x 461.725pt>
 File: ./images/ConvergenceOverGamma_w_diverge.jpg Graphic file (type jpg)
 
 <use ./images/ConvergenceOverGamma_w_diverge.jpg>
 Package pdftex.def Info: ./images/ConvergenceOverGamma_w_diverge.jpg used on in
-put line 156.
+put line 165.
 (pdftex.def)             Requested size: 137.9979pt x 104.05977pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 
-Overfull \hbox (10.16454pt too wide) in paragraph at lines 161--161
+Overfull \hbox (10.16454pt too wide) in paragraph at lines 170--170
 []\OT1/cmr/bx/n/14.4 Erwartungswert und Var-i-anz von $\OML/cmm/m/it/14.4 w[]$ 
 \OT1/cmr/bx/n/14.4 im Bezug
  []
 
-[6 <C:/Users/braendlc/Documents/TU_Wien/1_Semester/MachinellesLernen/UEB/GitHub
+[7 <C:/Users/braendlc/Documents/TU_Wien/1_Semester/MachinellesLernen/UEB/GitHub
 /MachineLearning2014/Aufgabe01/Report/images/ConvergenceOverGamma.jpg>]
-<./images/VarianceWeightCoeffinientsOverDimension_stable.png, id=51, 612.2875pt
+<./images/VarianceWeightCoeffinientsOverDimension_stable.png, id=55, 612.2875pt
  x 461.725pt>
 File: ./images/VarianceWeightCoeffinientsOverDimension_stable.png Graphic file 
 (type png)
 
 <use ./images/VarianceWeightCoeffinientsOverDimension_stable.png>
 Package pdftex.def Info: ./images/VarianceWeightCoeffinientsOverDimension_stabl
-e.png used on input line 173.
+e.png used on input line 182.
 (pdftex.def)             Requested size: 137.9979pt x 104.05977pt.
 
-<./images/VarianceWeightCoeffinientsOverDimension.png, id=52, 612.2875pt x 461.
+<./images/VarianceWeightCoeffinientsOverDimension.png, id=56, 612.2875pt x 461.
 725pt>
 File: ./images/VarianceWeightCoeffinientsOverDimension.png Graphic file (type p
 ng)
  <use ./images/VarianceWeightCoeffinientsOverDimension.png>
 Package pdftex.def Info: ./images/VarianceWeightCoeffinientsOverDimension.png u
-sed on input line 173.
+sed on input line 182.
 (pdftex.def)             Requested size: 137.9979pt x 104.05977pt.
 
-<./images/DeviationWeightCoeffinientsOverDimension_stable.png, id=53, 612.2875p
+<./images/DeviationWeightCoeffinientsOverDimension_stable.png, id=57, 612.2875p
 t x 461.725pt>
 File: ./images/DeviationWeightCoeffinientsOverDimension_stable.png Graphic file
  (type png)
 
 <use ./images/DeviationWeightCoeffinientsOverDimension_stable.png>
 Package pdftex.def Info: ./images/DeviationWeightCoeffinientsOverDimension_stab
-le.png used on input line 178.
+le.png used on input line 187.
 (pdftex.def)             Requested size: 137.9979pt x 104.05977pt.
 
-<./images/DeviationWeightCoeffinientsOverDimension.png, id=54, 612.2875pt x 461
+<./images/DeviationWeightCoeffinientsOverDimension.png, id=58, 612.2875pt x 461
 .725pt>
 File: ./images/DeviationWeightCoeffinientsOverDimension.png Graphic file (type 
 png)
  <use ./images/DeviationWeightCoeffinientsOverDimension.png>
 Package pdftex.def Info: ./images/DeviationWeightCoeffinientsOverDimension.png 
-used on input line 178.
+used on input line 187.
 (pdftex.def)             Requested size: 137.9979pt x 104.05977pt.
 
-<./images/MeanWeightCoeffinientsOverDimension_stable.png, id=55, 612.2875pt x 4
+<./images/MeanWeightCoeffinientsOverDimension_stable.png, id=59, 612.2875pt x 4
 61.725pt>
 File: ./images/MeanWeightCoeffinientsOverDimension_stable.png Graphic file (typ
 e png)
  <use ./images/MeanWeightCoeffinientsOverDimension_stable.png>
 Package pdftex.def Info: ./images/MeanWeightCoeffinientsOverDimension_stable.pn
-g used on input line 183.
+g used on input line 192.
 (pdftex.def)             Requested size: 137.9979pt x 104.05977pt.
 
-<./images/MeanWeightCoeffinientsOverDimension.png, id=56, 612.2875pt x 461.725p
+<./images/MeanWeightCoeffinientsOverDimension.png, id=60, 612.2875pt x 461.725p
 t>
 File: ./images/MeanWeightCoeffinientsOverDimension.png Graphic file (type png)
  <use ./images/MeanWeightCoeffinientsOverDimension.png>
 Package pdftex.def Info: ./images/MeanWeightCoeffinientsOverDimension.png used 
-on input line 183.
+on input line 192.
 (pdftex.def)             Requested size: 137.9979pt x 104.05977pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 
-<./images/f_x_w_star_overDimensions_stable.png, id=57, 612.2875pt x 461.725pt>
+<./images/f_x_w_star_overDimensions_stable.png, id=61, 612.2875pt x 461.725pt>
 File: ./images/f_x_w_star_overDimensions_stable.png Graphic file (type png)
 
 <use ./images/f_x_w_star_overDimensions_stable.png>
 Package pdftex.def Info: ./images/f_x_w_star_overDimensions_stable.png used on 
-input line 196.
+input line 205.
 (pdftex.def)             Requested size: 137.9979pt x 104.05977pt.
 
-Overfull \hbox (8.39397pt too wide) in paragraph at lines 201--201
+Overfull \hbox (8.39397pt too wide) in paragraph at lines 210--210
 []\OT1/cmr/bx/n/14.4 Mittlere quadratis-che Ab-we-ichung von $\OML/cmm/m/it/14.
 4 f[]\OT1/cmr/m/n/14.4 (\OML/cmm/m/it/14.4 x[]\OT1/cmr/m/n/14.4 )$ 
  []
 
-<./images/MeanErrorOverDimensions.png, id=58, 612.2875pt x 461.725pt>
+<./images/MeanErrorOverDimensions.png, id=62, 612.2875pt x 461.725pt>
 File: ./images/MeanErrorOverDimensions.png Graphic file (type png)
 
 <use ./images/MeanErrorOverDimensions.png>
 Package pdftex.def Info: ./images/MeanErrorOverDimensions.png used on input lin
-e 207.
+e 216.
 (pdftex.def)             Requested size: 137.9979pt x 104.05977pt.
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-
-Overfull \hbox (5.48619pt too wide) in paragraph at lines 212--212
+ [8 <C:/Users/braendlc/Documents/TU_Wien/1_Semester/MachinellesLernen/UEB/GitHu
+b/MachineLearning2014/Aufgabe01/Report/images/ConvergenceOverGamma_w_diverge.jp
+g> <C:/Users/braendlc/Documents/TU_Wien/1_Semester/MachinellesLernen/UEB/GitHub
+/MachineLearning2014/Aufgabe01/Report/images/f_x_w_star_overDimensions_stable.p
+ng (PNG copy)>]
+Overfull \hbox (5.48619pt too wide) in paragraph at lines 221--221
 []\OT1/cmr/bx/n/14.4 Gewichtsvektor $\OML/cmm/m/it/14.4 w[]$ \OT1/cmr/bx/n/14.4
  bei ungestorter Train-ings-
  []
 
-[7 <C:/Users/braendlc/Documents/TU_Wien/1_Semester/MachinellesLernen/UEB/GitHub
-/MachineLearning2014/Aufgabe01/Report/images/ConvergenceOverGamma_w_diverge.jpg
-> <C:/Users/braendlc/Documents/TU_Wien/1_Semester/MachinellesLernen/UEB/GitHub/
-MachineLearning2014/Aufgabe01/Report/images/f_x_w_star_overDimensions_stable.pn
-g (PNG copy)>]
-<./images/f_x_w_star_overDimensions.png, id=63, 612.2875pt x 461.725pt>
+<./images/f_x_w_star_overDimensions.png, id=67, 612.2875pt x 461.725pt>
 File: ./images/f_x_w_star_overDimensions.png Graphic file (type png)
 
 <use ./images/f_x_w_star_overDimensions.png>
 Package pdftex.def Info: ./images/f_x_w_star_overDimensions.png used on input l
-ine 220.
+ine 229.
 (pdftex.def)             Requested size: 137.9979pt x 104.05977pt.
 
-<./images/f_x_w_star_not_preturbed_overDimensions.png, id=64, 612.2875pt x 461.
+<./images/f_x_w_star_not_preturbed_overDimensions.png, id=68, 612.2875pt x 461.
 725pt>
 File: ./images/f_x_w_star_not_preturbed_overDimensions.png Graphic file (type p
 ng)
  <use ./images/f_x_w_star_not_preturbed_overDimensions.png>
 Package pdftex.def Info: ./images/f_x_w_star_not_preturbed_overDimensions.png u
-sed on input line 220.
+sed on input line 229.
 (pdftex.def)             Requested size: 137.9979pt x 104.05977pt.
 File: ./images/f_x_w_star_overDimensions_stable.png Graphic file (type png)
 
 <use ./images/f_x_w_star_overDimensions_stable.png>
 Package pdftex.def Info: ./images/f_x_w_star_overDimensions_stable.png used on 
-input line 224.
+input line 233.
 (pdftex.def)             Requested size: 137.9979pt x 104.05977pt.
 
-<./images/f_x_w_star_not_preturbed_overDimensions_stable.png, id=65, 612.2875pt
+<./images/f_x_w_star_not_preturbed_overDimensions_stable.png, id=69, 612.2875pt
  x 461.725pt>
 File: ./images/f_x_w_star_not_preturbed_overDimensions_stable.png Graphic file 
 (type png)
 
 <use ./images/f_x_w_star_not_preturbed_overDimensions_stable.png>
 Package pdftex.def Info: ./images/f_x_w_star_not_preturbed_overDimensions_stabl
-e.png used on input line 224.
+e.png used on input line 233.
 (pdftex.def)             Requested size: 137.9979pt x 104.05977pt.
 
-Overfull \hbox (6.41817pt too wide) in paragraph at lines 217--229
+Overfull \hbox (6.41817pt too wide) in paragraph at lines 226--238
 [][] 
  []
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[8 <C:/Users/braendlc/Documents/TU_Wien/1_Semester/MachinellesLernen/UEB/GitHub
+[9 <C:/Users/braendlc/Documents/TU_Wien/1_Semester/MachinellesLernen/UEB/GitHub
 /MachineLearning2014/Aufgabe01/Report/images/MeanErrorOverDimensions.png (PNG c
-opy)>] [9 <C:/Users/braendlc/Documents/TU_Wien/1_Semester/MachinellesLernen/UEB
-/GitHub/MachineLearning2014/Aufgabe01/Report/images/VarianceWeightCoeffinientsO
-verDimension_stable.png (PNG copy)> <C:/Users/braendlc/Documents/TU_Wien/1_Seme
-ster/MachinellesLernen/UEB/GitHub/MachineLearning2014/Aufgabe01/Report/images/V
-arianceWeightCoeffinientsOverDimension.png (PNG copy)> <C:/Users/braendlc/Docum
-ents/TU_Wien/1_Semester/MachinellesLernen/UEB/GitHub/MachineLearning2014/Aufgab
-e01/Report/images/DeviationWeightCoeffinientsOverDimension_stable.png (PNG copy
-)> <C:/Users/braendlc/Documents/TU_Wien/1_Semester/MachinellesLernen/UEB/GitHub
-/MachineLearning2014/Aufgabe01/Report/images/DeviationWeightCoeffinientsOverDim
-ension.png (PNG copy)> <C:/Users/braendlc/Documents/TU_Wien/1_Semester/Machinel
-lesLernen/UEB/GitHub/MachineLearning2014/Aufgabe01/Report/images/MeanWeightCoef
-finientsOverDimension_stable.png (PNG copy)> <C:/Users/braendlc/Documents/TU_Wi
-en/1_Semester/MachinellesLernen/UEB/GitHub/MachineLearning2014/Aufgabe01/Report
-/images/MeanWeightCoeffinientsOverDimension.png (PNG copy)>] [10 <C:/Users/brae
-ndlc/Documents/TU_Wien/1_Semester/MachinellesLernen/UEB/GitHub/MachineLearning2
-014/Aufgabe01/Report/images/f_x_w_star_overDimensions.png (PNG copy)> <C:/Users
-/braendlc/Documents/TU_Wien/1_Semester/MachinellesLernen/UEB/GitHub/MachineLear
-ning2014/Aufgabe01/Report/images/f_x_w_star_not_preturbed_overDimensions.png (P
-NG copy)> <C:/Users/braendlc/Documents/TU_Wien/1_Semester/MachinellesLernen/UEB
-/GitHub/MachineLearning2014/Aufgabe01/Report/images/f_x_w_star_not_preturbed_ov
-erDimensions_stable.png (PNG copy)>]
+opy)>] [10 <C:/Users/braendlc/Documents/TU_Wien/1_Semester/MachinellesLernen/UE
+B/GitHub/MachineLearning2014/Aufgabe01/Report/images/VarianceWeightCoeffinients
+OverDimension_stable.png (PNG copy)> <C:/Users/braendlc/Documents/TU_Wien/1_Sem
+ester/MachinellesLernen/UEB/GitHub/MachineLearning2014/Aufgabe01/Report/images/
+VarianceWeightCoeffinientsOverDimension.png (PNG copy)> <C:/Users/braendlc/Docu
+ments/TU_Wien/1_Semester/MachinellesLernen/UEB/GitHub/MachineLearning2014/Aufga
+be01/Report/images/DeviationWeightCoeffinientsOverDimension_stable.png (PNG cop
+y)> <C:/Users/braendlc/Documents/TU_Wien/1_Semester/MachinellesLernen/UEB/GitHu
+b/MachineLearning2014/Aufgabe01/Report/images/DeviationWeightCoeffinientsOverDi
+mension.png (PNG copy)> <C:/Users/braendlc/Documents/TU_Wien/1_Semester/Machine
+llesLernen/UEB/GitHub/MachineLearning2014/Aufgabe01/Report/images/MeanWeightCoe
+ffinientsOverDimension_stable.png (PNG copy)> <C:/Users/braendlc/Documents/TU_W
+ien/1_Semester/MachinellesLernen/UEB/GitHub/MachineLearning2014/Aufgabe01/Repor
+t/images/MeanWeightCoeffinientsOverDimension.png (PNG copy)>] [11 <C:/Users/bra
+endlc/Documents/TU_Wien/1_Semester/MachinellesLernen/UEB/GitHub/MachineLearning
+2014/Aufgabe01/Report/images/f_x_w_star_overDimensions.png (PNG copy)> <C:/User
+s/braendlc/Documents/TU_Wien/1_Semester/MachinellesLernen/UEB/GitHub/MachineLea
+rning2014/Aufgabe01/Report/images/f_x_w_star_not_preturbed_overDimensions.png (
+PNG copy)> <C:/Users/braendlc/Documents/TU_Wien/1_Semester/MachinellesLernen/UE
+B/GitHub/MachineLearning2014/Aufgabe01/Report/images/f_x_w_star_not_preturbed_o
+verDimensions_stable.png (PNG copy)>]
 (C:\Users\braendlc\Documents\TU_Wien\1_Semester\MachinellesLernen\UEB\GitHub\Ma
 chineLearning2014\Aufgabe01\Report\template_Report.aux) ) 
 Here is how much of TeX's memory you used:
- 2284 strings out of 493921
- 32958 string characters out of 3144867
- 82992 words of memory out of 3000000
- 5548 multiletter control sequences out of 15000+200000
+ 2290 strings out of 493921
+ 33209 string characters out of 3144867
+ 84005 words of memory out of 3000000
+ 5553 multiletter control sequences out of 15000+200000
  13394 words of font info for 52 fonts, out of 3000000 for 9000
  841 hyphenation exceptions out of 8191
- 27i,11n,24p,731b,282s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 27i,11n,24p,731b,284s stack positions out of 5000i,500n,10000p,200000b,50000s
 <C:/Program Files (x86
 )/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Program Files (x86)/
 MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Program Files (x86)/Mi
@@ -551,9 +557,9 @@ e1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1
 blic/amsfonts/cm/cmsy7.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/publi
 c/amsfonts/cm/cmti10.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/
 amsfonts/symbols/msbm10.pfb>
-Output written on template_Report.pdf (11 pages, 1039788 bytes).
+Output written on template_Report.pdf (12 pages, 1081234 bytes).
 PDF statistics:
- 116 PDF objects out of 1000 (max. 8388607)
+ 120 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 131 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 136 words of extra memory for PDF output out of 10000 (max. 10000000)
 

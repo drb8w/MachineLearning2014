@@ -17,7 +17,7 @@
 %\begin{abstract}
 %\end{abstract}
 
-\section{Einfaches Perceptron - Datengeneration}
+\chapter{Einfaches Perceptron - Datengeneration}
 
 Gegeben sind vier Datensets a 100 Beobachtungen von 2-dimensionalen Eingangsdaten, welche normalverteilt sind. Die Figuren in Tabelle ~\ref{tab:DataSets} verdeutlichen dies.
 
@@ -42,17 +42,26 @@ $set_2$: $\mu_2=2$, $\Sigma_2=4$ & $set_2$: $\mu_2=2$, $\Sigma_2=5$ \\
 \label{tab:DataSets}
 \end{table}
 
-\chapter{Einfaches Perceptron - Perceptrontraining}
+\section{Einfaches Perceptron - Perceptrontraining}
+
+Im Folgenden wird auf die verschiedenen Trainingsalgorithmen des Perceptrons eingegangen. Die dabei gestellten Fragen nach Geschwindigkeit, Konvergenz und Berechenbarkeit werden in den entsprechenden Punkten behandelt.
 
 \section{Anzahl Iterationen}
 
-Die Anzahl der Iterationen h\"angt ma{\ss}geblich von der \emph{margin} der separierbaren Daten ab. Je kleiner die margin, das hei{\ss}t der Minimalabstand zwischen den beiden Mengen, desto mehr Iterationen sind notwendig, bis der Algorithmus terminiert. Dies ist aus der Angabe der Iterationen aus ~\ref{tab:DataSetsAndBounds} ersichtlich. Weiters ist zu sehen, dass nur der online Percetron-Trainingsalgorithmus seine Iterationszahl \"andert, die Werte f\"ur den batch Percetron-Trainingsalgorithmus bleiben konstant.
+Die Anzahl der Iterationen h\"angt ma{\ss}geblich von der \emph{margin} der separierbaren Daten ab. Je kleiner die margin, das hei{\ss}t der Minimalabstand zwischen den beiden Mengen, desto mehr Iterationen sind notwendig, bis der Algorithmus terminiert. Dies ist aus der Angabe der Iterationen aus ~\ref{tab:DataSetsAndBounds} ersichtlich. Weiters ist zu sehen, dass nur der online Perceptron-Trainingsalgorithmus seine Iterationszahl \"andert, die Werte f\"ur den batch Perceptron-Trainingsalgorithmus bleiben konstant.
 
-Bei gr\"o{\ss}eren Datens\"atzen und extrem geringer margin ist ein deutlicher Sprung in der notwendigen Anzahl der Iterationen zu sehen. 
+Bei gr\"o{\ss}eren Datens\"atzen und extrem geringer margin ist ein deutlicher Sprung in der notwendigen Anzahl der Iterationen zu sehen. Exemplarisch wird dies f\"ur die gegebenen vier Datenmengen in Figur ~\ref{fig:meanIterOverDataSets} verdeutlicht.
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.4\textwidth]{./images/meanIterOnlinePercOverDataSets.jpg} \\
+\caption{iterations of online training for increasing margins}
+\label{fig:meanIterOverDataSets}
+\end{figure}  
 
 \section{Welchen Einflu{\ss} hat die Schrittweite $\gamma$}
 
-Der Einflu{\ss} der Schrittweite $\gamma$ hat keinerlei Einflu{\ss} auf die Anzahl der notwendigen Iterationen sowohl der online als auch der batch Variante des Percetron-Trainingsalgorithmus. Die konstante Verteilung der Iterationen \"uber ein $\gamma$ von 0.1 bis 4 f\"ur die jeweiligen unterschiedlichen Datens\"atze in Tabelle ~\ref{tab:GammaToIterations} sowohl f\"ur online als auch batch Variante des Percetron-Trainingsalgorithmus zu sehen.
+Der Einflu{\ss} der Schrittweite $\gamma$ hat keinerlei Einflu{\ss} auf die Anzahl der notwendigen Iterationen sowohl der online als auch der batch Variante des Perceptron-Trainingsalgorithmus. Die konstante Verteilung der Iterationen \"uber ein $\gamma$ von 0.1 bis 4 f\"ur die jeweiligen unterschiedlichen Datens\"atze in Tabelle ~\ref{tab:GammaToIterations} sowohl f\"ur online als auch batch Variante des Perceptron-Trainingsalgorithmus zu sehen.
 
 \begin{table}[h]
 \begin{tabular}{| c | c |}
@@ -113,7 +122,7 @@ wobei $G=10$ angenommen wird.
 
 Des weiteren erstellen wir eine Trainingsmenge aus jedem sechsten Datenpunkt und f\"ugen je einen Zufallswert aus $N(\mu=0,\Sigma=0.7)$ hinzu.
 
-\section{Gewichtsvektor mittels Gradientenabstieg bei quadratischer Fehlerfunktion}
+\section{Gewichtsvektor $w_{online}$ mittels Gradientenabstieg bei quadratischer Fehlerfunktion}
 
 Der Gewichtsvektor $w_{online}$ welcher aufgrund des online Verfahrens f\"ur \emph{LMS} (least mean square) ermittelte wurde kommt in der Anwendung auf die Funktion $f(x)=x^2-Gx+1$ dem optimalen $w^*$ zwar nahe, erreicht dessen Qualit\"at aber nicht. Eine Verringerung der Fehlertoleranz w\"urde hier sicher Abhilfe schaffen.
 In der Anwendung auf die Funktion $f(x)$ ergeben sich wie in Figur ~\ref{fig:onlineVsBatchLMS} gezeigt f\"ur die Dimensionalit\"at $3$ die gezeigten Kurven.
@@ -138,7 +147,7 @@ A^+ =& (AA^T)^{-1} + \lambda I &\textnormal{ f\"ur nicht invertierbare} AA^T \te
 
 Das ermittelte Ergebnis f\"ur $w^*$ mit normalisierten Daten aus dem $\mathbb{R}^2$ lautet: $w^*=(1.0106678, - 10.0086, 1.8960336, 0.0262634)$.
 
-\section{Konvergenzverhalten in Abh\"angigkeit von $\gamma$}
+\section{Konvergenzverhalten in Abh\"angigkeit von Lernrate $\gamma$}
 
 In Figur ~\ref{fig:ConvergenceOverGamma} ist zu sehen, da{\ss} die Anzahl der notwendigen Iterationen um zu einem Optimum zu gelangen mit der Gr\"o{\ss}e von $gamma$ exponentiell abnimmt bis sie bei einem Wert von $\gamma^{hat} \approx 0.0001$ ein Minimum erreichen. Danach steigt die Anzahl der notwendigen Iterationen wieder an.
 
@@ -161,7 +170,7 @@ In Figur ~\ref{fig:ConvergenceOverGammaWDiverge} ist zu sehen, da{\ss} bei Erh\"
 \section{Erwartungswert und Varianz von $w^*$ im Bezug zu Dimensionalit\"at $d$ von $f(x)$}
 
 Die Varianz von $w^*$ im Bezug zu Dimensionalit\"at $d$ von $f(x)$ zeigt, da{\ss} je h\"oher die Dimensionalit\"at $d$ steigt, umso h\"oher auch die Varianz $\Sigma$ der ermittelten Werte f\"ur $w^*$ f\"ur verrauschte Eingangsdaten wird. Dies ist auch klar, da h\"oherdimensionale Koeffizienten von $w^*$ h\"ohere Frequenzen repr\"asentieren, welche durch das Verrauschen der Eingangsdaten st\"arker betroffen sind als niedrigere Frequenzen.
-Interessanterweise steigt die Varianz aller Koeffizienten von $w^*$ in Tabelle ~\ref{tab:VarianceAndDeviantion} nur bis zu einer Dimensionalit\"at des Problems von $6$, danach f\"allt sie wieder ab. Es ist anzunehmen, dass dies zum Einen aufgrund in Unzul\"anglichkeiten beim generieren der Pseudoinversen zur Berechnung von $w^*$ liegt und zum Anderen in der Tatsache begr\"undet liegt, da{\ss} Freguenzen h\"oherer Ordnung wohl im gegebenen Problem nicht vorkommen.
+Interessanterweise steigt die Varianz aller Koeffizienten von $w^*$ in Tabelle ~\ref{tab:VarianceAndDeviantion} nur bis zu einer Dimensionalit\"at des Problems von $6$, danach f\"allt sie wieder ab. Es ist anzunehmen, dass dies zum Einen aufgrund in Unzul\"anglichkeiten beim generieren der Pseudoinversen zur Berechnung von $w^*$ liegt und zum Anderen in der Tatsache begr\"undet liegt, da{\ss} Frequenzen h\"oherer Ordnung wohl im gegebenen Problem nicht vorkommen.
 
 F\"ur den Mittelwert verh\"alt es sich \"ahnlich. Da das Problem im wesentlichen von der quadratischen Komponente abh\"angt ist diese naturgem\"a{\ss} am deutlichsten vertreten.
 H\"oherdimensionale Gewichtsanteile sind nur marginal vertreten.
