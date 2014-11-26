@@ -151,7 +151,8 @@ Das ermittelte Ergebnis f\"ur $w^*$ mit normalisierten Daten aus dem $\mathbb{R}
 
 In Figur ~\ref{fig:ConvergenceOverGamma} ist zu sehen, da{\ss} die Anzahl der notwendigen Iterationen um zu einem Optimum zu gelangen mit der Gr\"o{\ss}e von $gamma$ exponentiell abnimmt bis sie bei einem Wert von $\gamma^{hat} \approx 0.0001$ ein Minimum erreichen. Danach steigt die Anzahl der notwendigen Iterationen wieder an.
 
-In Figur ~\ref{fig:ConvergenceOverGammaWDiverge} ist zu sehen, da{\ss} bei Erh\"ohung von $\gamma$ \"uber den optimalen Wert von $\gamma^{hat} \approx 0.0001$ hinaus die Anzahl der Iterationen wieder zunimmt um anschlie{\ss}end einen etwas willk\"urlichen Verlauf anzunehmen. Auf jeden Fall ist festzustellen, dass nach dem erneuten Fallen der Iterationen kein brauchbares Resultat mehr zustande kommt. Exemplarisch wurde dies f\"ur ein $\gamma=0.0035$ durchgerechnet. Eigentlich w\"are erwartet worden, da{\ss} der Algorithmus \"uber einem gewissen $\gamma$ einfach die maximal zul\"assige Anzahl an Iterationen durchf\"uhrt und dann ohne konvergiertes Ergebnis terminiert.
+In Figur ~\ref{fig:ConvergenceOverGammaWDiverge} ist zu sehen, da{\ss} bei Erh\"ohung von $\gamma$ \"uber den optimalen Wert von $\gamma^{hat} \approx 0.0001$ hinaus die Anzahl der Iterationen wieder zunimmt um anschlie{\ss}end einen etwas willk\"urlichen Verlauf anzunehmen. Auf jeden Fall ist festzustellen, dass nach dem erneuten Fallen der Iterationen kein brauchbares Resultat mehr zustande kommt. Exemplarisch wurde dies f\"ur ein $\gamma=0.0035$ durchgerechnet und in Figur ~\ref{fig:WOnlineDiverged} dargestellt. Eigentlich w\"are erwartet worden, da{\ss} der Algorithmus \"uber einem gewissen $\gamma$ einfach die maximal zul\"assige Anzahl an Iterationen durchf\"uhrt und dann ohne konvergiertes Ergebnis terminiert.
+
 
 \begin{figure}[h]
 \centering
@@ -166,6 +167,14 @@ In Figur ~\ref{fig:ConvergenceOverGammaWDiverge} ist zu sehen, da{\ss} bei Erh\"
 \caption{convergence over gamma beyond opmital region}
 \label{fig:ConvergenceOverGammaWDiverge}
 \end{figure}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.4\textwidth]{./images/f_x_w_online_diverged.png} \\
+\caption{ $f(x)$ of diverged $w_{online}$}
+\label{fig:WOnlineDiverged}
+\end{figure}
+
 
 \section{Erwartungswert und Varianz von $w^*$ im Bezug zu Dimensionalit\"at $d$ von $f(x)$}
 
